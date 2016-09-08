@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jacob&#39;s Blog</title>
+  <subtitle>Good Good Study Day Day Up</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-09-07T14:50:44.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>jacob</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Selenium定位frame中元素问题</title>
+    <link href="http://yoursite.com/2016/09/07/selenium%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/09/07/selenium元素定位问题/</id>
+    <published>2016-09-07T14:26:46.000Z</published>
+    <updated>2016-09-07T14:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。</p>
+<p>##对页面进行分析</p>
+<p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
+<p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name="username" id="userName" title="请输入昵称" maxlength="50" placeholder="请输入昵称" type="text"&gt;</div></pre></td></tr></table></figure></p>
+<p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name="username" id="userPass" title="请输入密码" maxlength="50" placeholder="请输入密码" type="password"&gt;</div></pre></td></tr></table></figure></p>
+<p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">driver = webdriver.Firefox()</div><div class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></div><div class="line"></div><div class="line">driver.get(url)</div><div class="line">time.sleep(<span class="number">5</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</div><div class="line">driver.find_element_by_xpath(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</div></pre></td></tr></table></figure></p>
+<p>这样可行吗？？？<br>答案当然是不行的，这个时候我就陷入了深深的疑惑中，肯定是哪里出了问题，但是我找不到。</p>
+<p>##重新分析页面<br>后来一想，id不能定位，xpath呢？</p>
+<p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png" alt="Alt text"></p>
+<p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;iframe style="display: inline;" id="log-url" src="http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="100%" width="100%"&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></p>
+<p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></div><div class="line"></div><div class="line">driver.get(url)</div><div class="line">time.sleep(<span class="number">5</span>)</div><div class="line">driver.switch_to.frame(<span class="string">"log-url"</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</div></pre></td></tr></table></figure></p>
+<p>就是这个driver.switch_to.frame()方法<br>返回原来的界面可以用driver.SwitchTo().DefaultContent()方法</p>
+<p>至此，解决了登录页面元素定位问题，迈出了第一步。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。&lt;/p&gt;
+&lt;p&gt;##对页面进行分析&lt;/p&gt;
+&lt;p&gt;地址：&lt;a href=&quot;http://wan.douyu.com/jyjh/wd/index
+    
+    </summary>
+    
+    
+      <category term="Selenium" scheme="http://yoursite.com/tags/Selenium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac安装zsh后必须多次执行`source.bash_profile`解决方案</title>
+    <link href="http://yoursite.com/2016/09/07/Mac%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2016/09/07/Mac使用/</id>
+    <published>2016-09-06T16:00:00.000Z</published>
+    <updated>2016-09-07T09:12:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Mac 安装zsh后必须多次执行<code>source .bash_profile</code>解决方案</p>
+<p>最近重新安装zsh后发现原先配好的maven环境变量失效了，重新source .bash_profile后又生效了；</p>
+<p>但是，关闭终端重新打开后，maven环境变量又失效…总不能每次都执行一遍source .bash_profile；</p>
+<p>搜索一番后找到了解决方法：</p>
+<p>在~/.zshrc文件末尾加上 source .bash_profile 即可。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#Mac 安装zsh后必须多次执行&lt;code&gt;source .bash_profile&lt;/code&gt;解决方案&lt;/p&gt;
+&lt;p&gt;最近重新安装zsh后发现原先配好的maven环境变量失效了，重新source .bash_profile后又生效了；&lt;/p&gt;
+&lt;p&gt;但是，关闭终端重新
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+  </entry>
+  
+</feed>
