@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>【Httpclient+TestNG】接口自动化测试——GET请求示例 | Jacob&#39;s Blog</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="好好学习 天天向上">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="【Httpclient+TestNG】接口自动化测试——GET请求示例 | Jacob&#39;s Blog">
+    <meta name="twitter:description" content="好好学习 天天向上">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="【Httpclient+TestNG】接口自动化测试——GET请求示例 | Jacob&#39;s Blog">
+    <meta property="og:description" content="好好学习 天天向上">
+
+    
+    <meta name="author" content="jacob">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="Jacob&#39;s Blog" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2016/09/09/get请求/"/>
+
+    
+      
+</head>
+
+<body class="home-template no-js">
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 Jacob&#39;s Blog 的主页"><img src="/images/avatar.jpg" width="80" alt="Jacob&#39;s Blog logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Jacob&#39;s Blog">Jacob&#39;s Blog</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Good Good Study Day Day Up</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">好好学习 天天向上</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="/favourite">Favourite</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">我是</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/jacobHZ" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2016-09-08T16:00:00.000Z" class="post-list__meta--date date">2016-09-09</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/接口测试/">接口测试</a>
+ </span>
+      <span class="page-pv">
+      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">【Httpclient+TestNG】接口自动化测试——GET请求示例</h1>
+  </header>
+
+  <section class="post">
+    <p>###先直接上代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> net.sf.json.JSONArray;</div><div class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.config.RequestConfig;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.utils.URIBuilder;</div><div class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</div><div class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</div><div class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</div><div class="line"><span class="keyword">import</span> org.testng.Assert;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.AfterClass;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.BeforeClass;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.DataProvider;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.Test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.net.URI;</div><div class="line"><span class="keyword">import</span> java.net.URISyntaxException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by zhangbin on 16/4/26.</div><div class="line"> * 接口链接:http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?" 参数access_token,subject_id</div><div class="line"> * asset过程中出现字符类型不同问题,字符类型必须相同才能进行asset</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpGetTest</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@BeforeClass</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeClass</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"=======This is BeforeClass======="</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@DataProvider</span>(name=<span class="string">"user"</span>)</div><div class="line">    <span class="keyword">public</span> Object [][] Users()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[][]&#123;</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>&#125;,</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1,2"</span>,<span class="string">"5008"</span>&#125;,</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"123"</span>,<span class="string">"0"</span>&#125;,</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">""</span>,<span class="string">"5008"</span>&#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span>(dataProvider=<span class="string">"user"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getUri</span><span class="params">(String access_token,String subject_id,String hcode)</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 拼接接口链接</div><div class="line">         */</div><div class="line">        URI uri = <span class="keyword">new</span> URIBuilder()</div><div class="line">                .setScheme(<span class="string">"http"</span>)</div><div class="line">                .setHost(<span class="string">"gateway.zitech.com/gw/oauthentry"</span>)</div><div class="line">                .setPath(<span class="string">"/study.scene/1.0/getbysid"</span>)</div><div class="line">                .setParameter(<span class="string">"access_token"</span>,access_token)</div><div class="line">                .setParameter(<span class="string">"subject_id"</span>,subject_id)</div><div class="line">                .build();</div><div class="line">        System.out.println(uri);</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建httpclient</div><div class="line">         */</div><div class="line">        CloseableHttpClient httpClient = HttpClients.createDefault();</div><div class="line">        HttpGet httpGet = <span class="keyword">new</span> HttpGet(uri);</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 设置超时时间</div><div class="line">         */</div><div class="line">        RequestConfig requestConfig = RequestConfig.custom()</div><div class="line">                .setSocketTimeout(<span class="number">2000</span>)</div><div class="line">                .setConnectionRequestTimeout(<span class="number">2000</span>)</div><div class="line">                .build();</div><div class="line">        httpGet.setConfig(requestConfig);</div><div class="line"></div><div class="line">        CloseableHttpResponse response = httpClient.execute(httpGet);</div><div class="line">        System.out.println(<span class="string">"响应码:"</span> + response.getStatusLine().getStatusCode());</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 获取服务器响应内容</div><div class="line">         */</div><div class="line">        String returnStr = EntityUtils.toString(response.getEntity());</div><div class="line"><span class="comment">//        System.out.println("响应内容:" + returnStr);</span></div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 解析json</div><div class="line">         */</div><div class="line">        JSONObject jsonObject = JSONObject.fromObject(returnStr);</div><div class="line"><span class="comment">//        System.out.println(jsonObject.has("message"));</span></div><div class="line"><span class="comment">//        System.out.println(jsonObject.getString("message"));</span></div><div class="line">        String code = jsonObject.getString(<span class="string">"code"</span>);</div><div class="line">        String message = jsonObject.getString(<span class="string">"message"</span>);</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 进行结果验证</div><div class="line">         * 注意asset对象字符类型,此处全为String类型</div><div class="line">         */</div><div class="line">        <span class="keyword">if</span> (jsonObject.get(<span class="string">"data"</span>) !=<span class="keyword">null</span> &amp;&amp; code.equals(<span class="string">"0"</span>))&#123;</div><div class="line"></div><div class="line">            JSONArray array = jsonObject.getJSONArray(<span class="string">"data"</span>);</div><div class="line">            <span class="keyword">if</span> (array.size() &gt; <span class="number">0</span>)&#123;</div><div class="line">                JSONObject data = array.getJSONObject(<span class="number">0</span>);</div><div class="line">                String su_id = data.getString(<span class="string">"subjectId"</span>);</div><div class="line">                System.out.println(<span class="string">"subjectId:"</span> + su_id);</div><div class="line">                Assert.assertEquals(subject_id,su_id);</div><div class="line"></div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                Assert.assertEquals(hcode,code);</div><div class="line">                System.out.println(code);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            Assert.assertEquals(hcode,code);</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"message:"</span> + message);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@AfterClass</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterClass</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"This is afterClass"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+  </section>
+
+</article>
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">最近的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2016/09/09/ReportNG/" title="MacOS + Idea配置 Maven + ReportNG">MacOS + Idea配置 Maven + ReportNG</a></h2>
+                <p class="excerpt">
+                
+                用testng做接口自动化，testng自带的报告模板不是特别美观，于是找到了ReportNG。
+###在maven的pom.xml中添加ReportNG（最新版本为1.1.4）12345678910111213&amp;lt;dependencies&amp;gt;    &amp;lt;dependency&amp;gt;  
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2016-09-08T16:00:00.000Z" class="post-list__meta--date date">2016-09-09</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/ReportNG/">ReportNG</a>
+</span><a class="btn-border-small" href="/2016/09/09/ReportNG/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2016/09/07/selenium元素定位问题/" title="Selenium定位frame中元素问题">Selenium定位frame中元素问题</a></h2>
+                <p class="excerpt">
+                
+                最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。
+对页面进行分析地址：http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;amp;frm=jyjh
+
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2016-09-07T14:26:46.000Z" class="post-list__meta--date date">2016-09-07</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Selenium/">Selenium</a>
+</span><a class="btn-border-small" href="/2016/09/07/selenium元素定位问题/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+            
+<section class="post-comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="http://yoursite.com/2016/09/09/get请求/" data-title="【Httpclient+TestNG】接口自动化测试——GET请求示例" data-url="http://yoursite.com/2016/09/09/get请求/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"jacoblog"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2016 - 本站由 <a href="/">@Jacob</a> 创建,
+        使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">hexo-theme-new-vno</a> 主题,
+        修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+     
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?3392a187e4a1a6d903f71ce679307dfd";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    
+    </script>
+    
+</body>
+</html>
