@@ -584,9 +584,9 @@
     <link href="http://yoursite.com/2016/09/09/%E4%BB%A3%E7%A0%81%E5%9D%97%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2016/09/09/代码块高亮问题/</id>
     <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T08:13:11.000Z</updated>
+    <updated>2016-09-09T08:15:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%" alt="Alt text"></p>
+    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png" alt="Alt text"></p>
 <p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
 <ol>
 <li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
