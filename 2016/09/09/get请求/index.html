@@ -150,7 +150,239 @@
   </header>
 
   <section class="post">
-    <h3 id="先直接上代码"><a href="#先直接上代码" class="headerlink" title="先直接上代码"></a>先直接上代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> net.sf.json.JSONArray;</div><div class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.config.RequestConfig;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</div><div class="line"><span class="keyword">import</span> org.apache.http.client.utils.URIBuilder;</div><div class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</div><div class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</div><div class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</div><div class="line"><span class="keyword">import</span> org.testng.Assert;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.AfterClass;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.BeforeClass;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.DataProvider;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.Test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.net.URI;</div><div class="line"><span class="keyword">import</span> java.net.URISyntaxException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by zhangbin on 16/4/26.</div><div class="line"> * 接口链接:http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?" 参数access_token,subject_id</div><div class="line"> * asset过程中出现字符类型不同问题,字符类型必须相同才能进行asset</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpGetTest</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@BeforeClass</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeClass</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"=======This is BeforeClass======="</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@DataProvider</span>(name=<span class="string">"user"</span>)</div><div class="line">    <span class="keyword">public</span> Object [][] Users()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[][]&#123;</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>&#125;,</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1,2"</span>,<span class="string">"5008"</span>&#125;,</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"123"</span>,<span class="string">"0"</span>&#125;,</div><div class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">""</span>,<span class="string">"5008"</span>&#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span>(dataProvider=<span class="string">"user"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getUri</span><span class="params">(String access_token,String subject_id,String hcode)</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 拼接接口链接</div><div class="line">         */</div><div class="line">        URI uri = <span class="keyword">new</span> URIBuilder()</div><div class="line">                .setScheme(<span class="string">"http"</span>)</div><div class="line">                .setHost(<span class="string">"gateway.zitech.com/gw/oauthentry"</span>)</div><div class="line">                .setPath(<span class="string">"/study.scene/1.0/getbysid"</span>)</div><div class="line">                .setParameter(<span class="string">"access_token"</span>,access_token)</div><div class="line">                .setParameter(<span class="string">"subject_id"</span>,subject_id)</div><div class="line">                .build();</div><div class="line">        System.out.println(uri);</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建httpclient</div><div class="line">         */</div><div class="line">        CloseableHttpClient httpClient = HttpClients.createDefault();</div><div class="line">        HttpGet httpGet = <span class="keyword">new</span> HttpGet(uri);</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 设置超时时间</div><div class="line">         */</div><div class="line">        RequestConfig requestConfig = RequestConfig.custom()</div><div class="line">                .setSocketTimeout(<span class="number">2000</span>)</div><div class="line">                .setConnectionRequestTimeout(<span class="number">2000</span>)</div><div class="line">                .build();</div><div class="line">        httpGet.setConfig(requestConfig);</div><div class="line"></div><div class="line">        CloseableHttpResponse response = httpClient.execute(httpGet);</div><div class="line">        System.out.println(<span class="string">"响应码:"</span> + response.getStatusLine().getStatusCode());</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 获取服务器响应内容</div><div class="line">         */</div><div class="line">        String returnStr = EntityUtils.toString(response.getEntity());</div><div class="line"><span class="comment">//        System.out.println("响应内容:" + returnStr);</span></div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 解析json</div><div class="line">         */</div><div class="line">        JSONObject jsonObject = JSONObject.fromObject(returnStr);</div><div class="line"><span class="comment">//        System.out.println(jsonObject.has("message"));</span></div><div class="line"><span class="comment">//        System.out.println(jsonObject.getString("message"));</span></div><div class="line">        String code = jsonObject.getString(<span class="string">"code"</span>);</div><div class="line">        String message = jsonObject.getString(<span class="string">"message"</span>);</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 进行结果验证</div><div class="line">         * 注意asset对象字符类型,此处全为String类型</div><div class="line">         */</div><div class="line">        <span class="keyword">if</span> (jsonObject.get(<span class="string">"data"</span>) !=<span class="keyword">null</span> &amp;&amp; code.equals(<span class="string">"0"</span>))&#123;</div><div class="line"></div><div class="line">            JSONArray array = jsonObject.getJSONArray(<span class="string">"data"</span>);</div><div class="line">            <span class="keyword">if</span> (array.size() &gt; <span class="number">0</span>)&#123;</div><div class="line">                JSONObject data = array.getJSONObject(<span class="number">0</span>);</div><div class="line">                String su_id = data.getString(<span class="string">"subjectId"</span>);</div><div class="line">                System.out.println(<span class="string">"subjectId:"</span> + su_id);</div><div class="line">                Assert.assertEquals(subject_id,su_id);</div><div class="line"></div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                Assert.assertEquals(hcode,code);</div><div class="line">                System.out.println(code);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            Assert.assertEquals(hcode,code);</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"message:"</span> + message);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@AfterClass</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterClass</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"This is afterClass"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <h3 id="先直接上代码"><a href="#先直接上代码" class="headerlink" title="先直接上代码"></a>先直接上代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+<span class="line">101</span>
+<span class="line">102</span>
+<span class="line">103</span>
+<span class="line">104</span>
+<span class="line">105</span>
+<span class="line">106</span>
+<span class="line">107</span>
+<span class="line">108</span>
+<span class="line">109</span>
+<span class="line">110</span>
+<span class="line">111</span>
+<span class="line">112</span>
+<span class="line">113</span>
+<span class="line">114</span>
+<span class="line">115</span>
+<span class="line">116</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> net.sf.json.JSONArray;</span>
+<span class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.config.RequestConfig;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.utils.URIBuilder;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</span>
+<span class="line"><span class="keyword">import</span> org.testng.Assert;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.AfterClass;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.BeforeClass;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.DataProvider;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.Test;</span>
+<span class="line"></span>
+<span class="line"><span class="keyword">import</span> java.io.IOException;</span>
+<span class="line"><span class="keyword">import</span> java.net.URI;</span>
+<span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/**</span>
+<span class="line"> * Created by zhangbin on 16/4/26.</span>
+<span class="line"> * 接口链接:http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?" 参数access_token,subject_id</span>
+<span class="line"> * asset过程中出现字符类型不同问题,字符类型必须相同才能进行asset</span>
+<span class="line"> */</span></span>
+<span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpGetTest</span> </span>&#123;</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@BeforeClass</span></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeClass</span><span class="params">()</span></span>&#123;</span>
+<span class="line">        System.out.println(<span class="string">"=======This is BeforeClass======="</span>);</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@DataProvider</span>(name=<span class="string">"user"</span>)</span>
+<span class="line">    <span class="keyword">public</span> Object [][] Users()&#123;</span>
+<span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[][]&#123;</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>&#125;,</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1,2"</span>,<span class="string">"5008"</span>&#125;,</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"123"</span>,<span class="string">"0"</span>&#125;,</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">""</span>,<span class="string">"5008"</span>&#125;</span>
+<span class="line">        &#125;;</span>
+<span class="line"></span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@Test</span>(dataProvider=<span class="string">"user"</span>)</span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getUri</span><span class="params">(String access_token,String subject_id,String hcode)</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 拼接接口链接</span>
+<span class="line">         */</span></span>
+<span class="line">        URI uri = <span class="keyword">new</span> URIBuilder()</span>
+<span class="line">                .setScheme(<span class="string">"http"</span>)</span>
+<span class="line">                .setHost(<span class="string">"gateway.zitech.com/gw/oauthentry"</span>)</span>
+<span class="line">                .setPath(<span class="string">"/study.scene/1.0/getbysid"</span>)</span>
+<span class="line">                .setParameter(<span class="string">"access_token"</span>,access_token)</span>
+<span class="line">                .setParameter(<span class="string">"subject_id"</span>,subject_id)</span>
+<span class="line">                .build();</span>
+<span class="line">        System.out.println(uri);</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 创建httpclient</span>
+<span class="line">         */</span></span>
+<span class="line">        CloseableHttpClient httpClient = HttpClients.createDefault();</span>
+<span class="line">        HttpGet httpGet = <span class="keyword">new</span> HttpGet(uri);</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 设置超时时间</span>
+<span class="line">         */</span></span>
+<span class="line">        RequestConfig requestConfig = RequestConfig.custom()</span>
+<span class="line">                .setSocketTimeout(<span class="number">2000</span>)</span>
+<span class="line">                .setConnectionRequestTimeout(<span class="number">2000</span>)</span>
+<span class="line">                .build();</span>
+<span class="line">        httpGet.setConfig(requestConfig);</span>
+<span class="line"></span>
+<span class="line">        CloseableHttpResponse response = httpClient.execute(httpGet);</span>
+<span class="line">        System.out.println(<span class="string">"响应码:"</span> + response.getStatusLine().getStatusCode());</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 获取服务器响应内容</span>
+<span class="line">         */</span></span>
+<span class="line">        String returnStr = EntityUtils.toString(response.getEntity());</span>
+<span class="line"><span class="comment">//        System.out.println("响应内容:" + returnStr);</span></span>
+<span class="line"></span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 解析json</span>
+<span class="line">         */</span></span>
+<span class="line">        JSONObject jsonObject = JSONObject.fromObject(returnStr);</span>
+<span class="line"><span class="comment">//        System.out.println(jsonObject.has("message"));</span></span>
+<span class="line"><span class="comment">//        System.out.println(jsonObject.getString("message"));</span></span>
+<span class="line">        String code = jsonObject.getString(<span class="string">"code"</span>);</span>
+<span class="line">        String message = jsonObject.getString(<span class="string">"message"</span>);</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 进行结果验证</span>
+<span class="line">         * 注意asset对象字符类型,此处全为String类型</span>
+<span class="line">         */</span></span>
+<span class="line">        <span class="keyword">if</span> (jsonObject.get(<span class="string">"data"</span>) !=<span class="keyword">null</span> &amp;&amp; code.equals(<span class="string">"0"</span>))&#123;</span>
+<span class="line"></span>
+<span class="line">            JSONArray array = jsonObject.getJSONArray(<span class="string">"data"</span>);</span>
+<span class="line">            <span class="keyword">if</span> (array.size() &gt; <span class="number">0</span>)&#123;</span>
+<span class="line">                JSONObject data = array.getJSONObject(<span class="number">0</span>);</span>
+<span class="line">                String su_id = data.getString(<span class="string">"subjectId"</span>);</span>
+<span class="line">                System.out.println(<span class="string">"subjectId:"</span> + su_id);</span>
+<span class="line">                Assert.assertEquals(subject_id,su_id);</span>
+<span class="line"></span>
+<span class="line">            &#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">                Assert.assertEquals(hcode,code);</span>
+<span class="line">                System.out.println(code);</span>
+<span class="line">            &#125;</span>
+<span class="line">        &#125;</span>
+<span class="line">        <span class="keyword">else</span> &#123;</span>
+<span class="line">            Assert.assertEquals(hcode,code);</span>
+<span class="line">        &#125;</span>
+<span class="line">        System.out.println(<span class="string">"message:"</span> + message);</span>
+<span class="line"></span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@AfterClass</span></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterClass</span><span class="params">()</span></span>&#123;</span>
+<span class="line">        System.out.println(<span class="string">"This is afterClass"</span>);</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <p>回头再整理一份说明文档~</p>
 
   </section>
@@ -166,7 +398,21 @@
                 <p class="excerpt">
                 
                 用testng做接口自动化，testng自带的报告模板不是特别美观，于是找到了ReportNG。
-###在maven的pom.xml中添加ReportNG（最新版本为1.1.4）12345678910111213&amp;lt;dependencies&amp;gt;    &amp;lt;dependency&amp;gt;  
+###在maven的pom.xml中添加ReportNG（最新版本为1.1.4）1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+&amp;lt;dependencies&amp;gt;
+    &amp;lt;de
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2016-09-08T16:00:00.000Z" class="post-list__meta--date date">2016-09-09</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
@@ -179,17 +425,17 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/09/07/selenium元素定位问题/" title="Selenium定位frame中元素问题">Selenium定位frame中元素问题</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2016/09/09/git报错/" title="git clone 报错：SSL certificate problem">git clone 报错：SSL certificate problem</a></h2>
                 <p class="excerpt">
                 
-                最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。
-对页面进行分析地址：http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;amp;frm=jyjh
-
+                
+进行git clone时提示“无效的链接”，并且弹出如下报错：
+error: SSL certificate problem: Invalid certificate chain while accessing https://githib.com/...XXXX.git fatal: HTTP 
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2016-09-07T14:26:46.000Z" class="post-list__meta--date date">2016-09-07</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/Selenium/">Selenium</a>
-</span><a class="btn-border-small" href="/2016/09/07/selenium元素定位问题/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2016-09-08T16:00:00.000Z" class="post-list__meta--date date">2016-09-09</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/git/">git</a>
+</span><a class="btn-border-small" href="/2016/09/09/git报错/">继续阅读</a></div>
                        
             </div>
         

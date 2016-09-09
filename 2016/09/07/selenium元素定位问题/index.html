@@ -152,14 +152,48 @@
   <section class="post">
     <p>最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。</p>
 <h2 id="对页面进行分析"><a href="#对页面进行分析" class="headerlink" title="对页面进行分析"></a>对页面进行分析</h2><p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
-<p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name="username" id="userName" title="请输入昵称" maxlength="50" placeholder="请输入昵称" type="text"&gt;</div></pre></td></tr></table></figure></p>
-<p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name="username" id="userPass" title="请输入密码" maxlength="50" placeholder="请输入密码" type="password"&gt;</div></pre></td></tr></table></figure></p>
-<p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">driver = webdriver.Firefox()</div><div class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></div><div class="line"></div><div class="line">driver.get(url)</div><div class="line">time.sleep(<span class="number">5</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</div><div class="line">driver.find_element_by_xpath(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</div></pre></td></tr></table></figure></p>
+<p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userName"</span> <span class="attr">title</span>=<span class="string">"请输入昵称"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入昵称"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span></span>
+</pre></td></tr></table></figure></p>
+<p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userPass"</span> <span class="attr">title</span>=<span class="string">"请输入密码"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">type</span>=<span class="string">"password"</span>&gt;</span></span></span>
+</pre></td></tr></table></figure></p>
+<p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line">driver = webdriver.Firefox()</span>
+<span class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></span>
+<span class="line"></span>
+<span class="line">driver.get(url)</span>
+<span class="line">time.sleep(<span class="number">5</span>)</span>
+<span class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</span>
+<span class="line">driver.find_element_by_xpath(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</span>
+</pre></td></tr></table></figure></p>
 <p><strong>这样可行吗？？？</strong><br>答案当然是不行的，这个时候我就陷入了深深的疑惑中，肯定是哪里出了问题，但是我找不到。</p>
 <h2 id="重新分析页面"><a href="#重新分析页面" class="headerlink" title="重新分析页面"></a>重新分析页面</h2><p>后来一想，id不能定位，xpath呢？</p>
 <p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png" alt="Alt text"></p>
-<p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;iframe style="display: inline;" id="log-url" src="http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="100%" width="100%"&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></p>
-<p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></div><div class="line"></div><div class="line">driver.get(url)</div><div class="line">time.sleep(<span class="number">5</span>)</div><div class="line">driver.switch_to.frame(<span class="string">"log-url"</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</div></pre></td></tr></table></figure></p>
+<p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">style</span>=<span class="string">"display: inline;"</span> <span class="attr">id</span>=<span class="string">"log-url"</span> <span class="attr">src</span>=<span class="string">"http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh"</span> <span class="attr">allowtransparency</span>=<span class="string">"true"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span>
+</pre></td></tr></table></figure></p>
+<p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></span>
+<span class="line"></span>
+<span class="line">driver.get(url)</span>
+<span class="line">time.sleep(<span class="number">5</span>)</span>
+<span class="line">driver.switch_to.frame(<span class="string">"log-url"</span>)</span>
+<span class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</span>
+<span class="line">driver.find_element_by_id(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</span>
+</pre></td></tr></table></figure></p>
 <p>就是这个driver.switch_to.frame()方法<br>返回原来的界面可以用driver.SwitchTo().DefaultContent()方法</p>
 <p>至此，解决了登录页面元素定位问题，迈出了第一步。</p>
 
@@ -172,15 +206,17 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/09/09/get请求/" title="【Httpclient+TestNG】接口自动化测试——GET请求示例">【Httpclient+TestNG】接口自动化测试——GET请求示例</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2016/09/09/git报错/" title="git clone 报错：SSL certificate problem">git clone 报错：SSL certificate problem</a></h2>
                 <p class="excerpt">
                 
-                先直接上代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767
+                
+进行git clone时提示“无效的链接”，并且弹出如下报错：
+error: SSL certificate problem: Invalid certificate chain while accessing https://githib.com/...XXXX.git fatal: HTTP 
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2016-09-08T16:00:00.000Z" class="post-list__meta--date date">2016-09-09</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/接口测试/">接口测试</a>
-</span><a class="btn-border-small" href="/2016/09/09/get请求/">继续阅读</a></div>
+  <a class="tag-link" href="/tags/git/">git</a>
+</span><a class="btn-border-small" href="/2016/09/09/git报错/">继续阅读</a></div>
                            
             </div>
         
