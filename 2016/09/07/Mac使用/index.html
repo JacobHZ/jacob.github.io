@@ -138,7 +138,9 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-09-06T16:00:00.000Z" class="post-list__meta--date date">2016-09-07</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
+      <time datetime="2016-09-06T16:00:00.000Z" class="post-list__meta--date date">2016-09-07</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Mac/">Mac</a>
+ </span>
       <span class="page-pv">
       &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
@@ -148,11 +150,12 @@
   </header>
 
   <section class="post">
-    <p>#Mac 安装zsh后必须多次执行<code>source .bash_profile</code>解决方案</p>
-<p>最近重新安装zsh后发现原先配好的maven环境变量失效了，重新source .bash_profile后又生效了；</p>
+    <h2 id="Mac-安装zsh后必须多次执行source-bash-profile解决方案"><a href="#Mac-安装zsh后必须多次执行source-bash-profile解决方案" class="headerlink" title="Mac 安装zsh后必须多次执行source .bash_profile解决方案"></a>Mac 安装zsh后必须多次执行<code>source .bash_profile</code>解决方案</h2><p>最近重新安装zsh后发现原先配好的maven环境变量失效了，重新 <code>source .bash_profile</code> 后又生效了；</p>
 <p>但是，关闭终端重新打开后，maven环境变量又失效…总不能每次都执行一遍source .bash_profile；</p>
 <p>搜索一番后找到了解决方法：</p>
+<blockquote>
 <p>在~/.zshrc文件末尾加上 source .bash_profile 即可。</p>
+</blockquote>
 
   </section>
 
@@ -167,8 +170,8 @@
                 <p class="excerpt">
                 
                 最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。
-##对页面进行分析
-地址：http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;amp;frm=jy
+对页面进行分析地址：http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;amp;frm=jyjh
+
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2016-09-07T14:26:46.000Z" class="post-list__meta--date date">2016-09-07</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;

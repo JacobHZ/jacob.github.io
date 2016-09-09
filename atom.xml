@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-07T14:50:44.000Z</updated>
+  <updated>2016-09-09T05:33:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,20 +16,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git clone 报错：SSL certificate problem</title>
+    <link href="http://yoursite.com/2016/09/09/git%E6%8A%A5%E9%94%99/"/>
+    <id>http://yoursite.com/2016/09/09/git报错/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T05:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
+<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
+</blockquote>
+</li>
+</ul>
+<p>解决方法也很简单，一条命令就搞定了：</p>
+<p>git config –global http.sslVerify false</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
+&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Selenium定位frame中元素问题</title>
     <link href="http://yoursite.com/2016/09/07/selenium%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2016/09/07/selenium元素定位问题/</id>
     <published>2016-09-07T14:26:46.000Z</published>
-    <updated>2016-09-07T14:50:44.000Z</updated>
+    <updated>2016-09-09T05:24:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。</p>
-<p>##对页面进行分析</p>
-<p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
+<h2 id="对页面进行分析"><a href="#对页面进行分析" class="headerlink" title="对页面进行分析"></a>对页面进行分析</h2><p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
 <p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name="username" id="userName" title="请输入昵称" maxlength="50" placeholder="请输入昵称" type="text"&gt;</div></pre></td></tr></table></figure></p>
 <p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name="username" id="userPass" title="请输入密码" maxlength="50" placeholder="请输入密码" type="password"&gt;</div></pre></td></tr></table></figure></p>
 <p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">driver = webdriver.Firefox()</div><div class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></div><div class="line"></div><div class="line">driver.get(url)</div><div class="line">time.sleep(<span class="number">5</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</div><div class="line">driver.find_element_by_xpath(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</div></pre></td></tr></table></figure></p>
-<p>这样可行吗？？？<br>答案当然是不行的，这个时候我就陷入了深深的疑惑中，肯定是哪里出了问题，但是我找不到。</p>
-<p>##重新分析页面<br>后来一想，id不能定位，xpath呢？</p>
+<p><strong>这样可行吗？？？</strong><br>答案当然是不行的，这个时候我就陷入了深深的疑惑中，肯定是哪里出了问题，但是我找不到。</p>
+<h2 id="重新分析页面"><a href="#重新分析页面" class="headerlink" title="重新分析页面"></a>重新分析页面</h2><p>后来一想，id不能定位，xpath呢？</p>
 <p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png" alt="Alt text"></p>
 <p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;iframe style="display: inline;" id="log-url" src="http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="100%" width="100%"&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></p>
 <p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></div><div class="line"></div><div class="line">driver.get(url)</div><div class="line">time.sleep(<span class="number">5</span>)</div><div class="line">driver.switch_to.frame(<span class="string">"log-url"</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</div><div class="line">driver.find_element_by_id(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</div></pre></td></tr></table></figure></p>
@@ -40,8 +69,7 @@
     <summary type="html">
     
       &lt;p&gt;最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。&lt;/p&gt;
-&lt;p&gt;##对页面进行分析&lt;/p&gt;
-&lt;p&gt;地址：&lt;a href=&quot;http://wan.douyu.com/jyjh/wd/index
+&lt;h2 id=&quot;对页面进行分析&quot;&gt;&lt;a href=&quot;#对页面进行分析&quot; class=&quot;headerlink&quot; title=&quot;对页面进
     
     </summary>
     
@@ -55,25 +83,24 @@
     <link href="http://yoursite.com/2016/09/07/Mac%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2016/09/07/Mac使用/</id>
     <published>2016-09-06T16:00:00.000Z</published>
-    <updated>2016-09-07T09:12:46.000Z</updated>
+    <updated>2016-09-09T05:27:57.000Z</updated>
     
-    <content type="html"><![CDATA[<p>#Mac 安装zsh后必须多次执行<code>source .bash_profile</code>解决方案</p>
-<p>最近重新安装zsh后发现原先配好的maven环境变量失效了，重新source .bash_profile后又生效了；</p>
+    <content type="html"><![CDATA[<h2 id="Mac-安装zsh后必须多次执行source-bash-profile解决方案"><a href="#Mac-安装zsh后必须多次执行source-bash-profile解决方案" class="headerlink" title="Mac 安装zsh后必须多次执行source .bash_profile解决方案"></a>Mac 安装zsh后必须多次执行<code>source .bash_profile</code>解决方案</h2><p>最近重新安装zsh后发现原先配好的maven环境变量失效了，重新 <code>source .bash_profile</code> 后又生效了；</p>
 <p>但是，关闭终端重新打开后，maven环境变量又失效…总不能每次都执行一遍source .bash_profile；</p>
 <p>搜索一番后找到了解决方法：</p>
+<blockquote>
 <p>在~/.zshrc文件末尾加上 source .bash_profile 即可。</p>
+</blockquote>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;#Mac 安装zsh后必须多次执行&lt;code&gt;source .bash_profile&lt;/code&gt;解决方案&lt;/p&gt;
-&lt;p&gt;最近重新安装zsh后发现原先配好的maven环境变量失效了，重新source .bash_profile后又生效了；&lt;/p&gt;
-&lt;p&gt;但是，关闭终端重新
+      &lt;h2 id=&quot;Mac-安装zsh后必须多次执行source-bash-profile解决方案&quot;&gt;&lt;a href=&quot;#Mac-安装zsh后必须多次执行source-bash-profile解决方案&quot; class=&quot;headerlink&quot; title=&quot;Mac 安装zsh后必须多次
     
     </summary>
     
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
     
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
     
   </entry>
   
