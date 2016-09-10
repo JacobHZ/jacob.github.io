@@ -4,9 +4,9 @@
   <subtitle>Good Good Study Day Day Up</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://zjs520.cc/"/>
   <updated>2016-09-09T09:19:05.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://zjs520.cc/</id>
   
   <author>
     <name>jacob</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>MacOS + Idea配置 Maven + ReportNG</title>
-    <link href="http://yoursite.com/2016/09/09/ReportNG/"/>
-    <id>http://yoursite.com/2016/09/09/ReportNG/</id>
+    <link href="http://zjs520.cc/2016/09/09/ReportNG/"/>
+    <id>http://zjs520.cc/2016/09/09/ReportNG/</id>
     <published>2016-09-08T16:00:00.000Z</published>
     <updated>2016-09-09T09:19:05.000Z</updated>
     
@@ -291,14 +291,14 @@
     </summary>
     
     
-      <category term="ReportNG" scheme="http://yoursite.com/tags/ReportNG/"/>
+      <category term="ReportNG" scheme="http://zjs520.cc/tags/ReportNG/"/>
     
   </entry>
   
   <entry>
     <title>【Httpclient+TestNG】接口自动化测试——GET请求示例</title>
-    <link href="http://yoursite.com/2016/09/09/get%E8%AF%B7%E6%B1%82/"/>
-    <id>http://yoursite.com/2016/09/09/get请求/</id>
+    <link href="http://zjs520.cc/2016/09/09/get%E8%AF%B7%E6%B1%82/"/>
+    <id>http://zjs520.cc/2016/09/09/get请求/</id>
     <published>2016-09-08T16:00:00.000Z</published>
     <updated>2016-09-09T07:24:35.000Z</updated>
     
@@ -545,14 +545,14 @@
     </summary>
     
     
-      <category term="接口测试" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+      <category term="接口测试" scheme="http://zjs520.cc/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>git clone 报错：SSL certificate problem</title>
-    <link href="http://yoursite.com/2016/09/09/git%E6%8A%A5%E9%94%99/"/>
-    <id>http://yoursite.com/2016/09/09/git报错/</id>
+    <link href="http://zjs520.cc/2016/09/09/git%E6%8A%A5%E9%94%99/"/>
+    <id>http://zjs520.cc/2016/09/09/git报错/</id>
     <published>2016-09-08T16:00:00.000Z</published>
     <updated>2016-09-09T05:33:27.000Z</updated>
     
@@ -575,14 +575,14 @@
     </summary>
     
     
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Hexo代码块高亮多出空白行问题</title>
-    <link href="http://yoursite.com/2016/09/09/%E4%BB%A3%E7%A0%81%E5%9D%97%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2016/09/09/代码块高亮问题/</id>
+    <link href="http://zjs520.cc/2016/09/09/%E4%BB%A3%E7%A0%81%E5%9D%97%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98/"/>
+    <id>http://zjs520.cc/2016/09/09/代码块高亮问题/</id>
     <published>2016-09-08T16:00:00.000Z</published>
     <updated>2016-09-09T08:15:43.000Z</updated>
     
@@ -611,14 +611,14 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Selenium定位frame中元素问题</title>
-    <link href="http://yoursite.com/2016/09/07/selenium%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2016/09/07/selenium元素定位问题/</id>
+    <link href="http://zjs520.cc/2016/09/07/selenium%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E9%97%AE%E9%A2%98/"/>
+    <id>http://zjs520.cc/2016/09/07/selenium元素定位问题/</id>
     <published>2016-09-07T14:26:46.000Z</published>
     <updated>2016-09-09T05:24:26.000Z</updated>
     
@@ -678,14 +678,14 @@
     </summary>
     
     
-      <category term="Selenium" scheme="http://yoursite.com/tags/Selenium/"/>
+      <category term="Selenium" scheme="http://zjs520.cc/tags/Selenium/"/>
     
   </entry>
   
   <entry>
     <title>Mac安装zsh后必须多次执行`source.bash_profile`解决方案</title>
-    <link href="http://yoursite.com/2016/09/07/Mac%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2016/09/07/Mac使用/</id>
+    <link href="http://zjs520.cc/2016/09/07/Mac%E4%BD%BF%E7%94%A8/"/>
+    <id>http://zjs520.cc/2016/09/07/Mac使用/</id>
     <published>2016-09-06T16:00:00.000Z</published>
     <updated>2016-09-09T05:27:57.000Z</updated>
     
@@ -704,7 +704,7 @@
     </summary>
     
     
-      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+      <category term="Mac" scheme="http://zjs520.cc/tags/Mac/"/>
     
   </entry>
   
