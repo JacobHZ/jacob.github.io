@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjs520.cc/"/>
-  <updated>2016-09-09T09:19:05.000Z</updated>
+  <updated>2016-09-09T05:33:27.000Z</updated>
   <id>http://zjs520.cc/</id>
   
   <author>
@@ -14,6 +14,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git clone 报错：SSL certificate problem</title>
+    <link href="http://zjs520.cc/2016/09/09/git%E6%8A%A5%E9%94%99/"/>
+    <id>http://zjs520.cc/2016/09/09/git报错/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T05:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
+<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
+</blockquote>
+</li>
+</ul>
+<p>解决方法也很简单，一条命令就搞定了：</p>
+<p>git config –global http.sslVerify false</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
+&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo代码块高亮多出空白行问题</title>
+    <link href="http://zjs520.cc/2016/09/09/%E4%BB%A3%E7%A0%81%E5%9D%97%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98/"/>
+    <id>http://zjs520.cc/2016/09/09/代码块高亮问题/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T08:15:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png" alt="Alt text"></p>
+<p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
+<ol>
+<li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
+<li>修改highlight.js代码35~38行为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line">numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+<span class="line">content += <span class="string">'&lt;span class="line'</span>;</span>
+<span class="line">content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span>
+<span class="line">content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+</pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如此这般之后，多出来的空白行就消失了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;a href=&quot;#解决Hexo贴代码会多出现多余空行问题&quot; class=&quot;headerlink&quot; title=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;/a&gt;解决Hexo贴代码会多出现多余空行问题&lt;/h3&gt;&lt;p&gt;使用
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>MacOS + Idea配置 Maven + ReportNG</title>
@@ -110,7 +176,7 @@
 </pre></td></tr></table></figure>
 <p>至此，最基本的ReportNG报告模板以及添加完成。</p>
 <h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p>这里以我之前写的一个Http接口测试为例子：</p>
-<p><a href="http://zjs520.cc/2016/09/09/get请求/" target="_blank" rel="external">http://zjs520.cc/2016/09/09/get请求/</a></p>
+<p><a href="http://zjs520.cc/2016/09/09/get请求/">http://zjs520.cc/2016/09/09/get请求/</a></p>
 <ol>
 <li><p>打开终端，进入IDEA测试项目根目录</p>
 </li>
@@ -550,72 +616,6 @@
   </entry>
   
   <entry>
-    <title>git clone 报错：SSL certificate problem</title>
-    <link href="http://zjs520.cc/2016/09/09/git%E6%8A%A5%E9%94%99/"/>
-    <id>http://zjs520.cc/2016/09/09/git报错/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T05:33:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
-<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
-</blockquote>
-</li>
-</ul>
-<p>解决方法也很简单，一条命令就搞定了：</p>
-<p>git config –global http.sslVerify false</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
-&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo代码块高亮多出空白行问题</title>
-    <link href="http://zjs520.cc/2016/09/09/%E4%BB%A3%E7%A0%81%E5%9D%97%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98/"/>
-    <id>http://zjs520.cc/2016/09/09/代码块高亮问题/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T08:15:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png" alt="Alt text"></p>
-<p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
-<ol>
-<li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
-<li>修改highlight.js代码35~38行为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-</pre></td><td class="code"><pre><span class="line">numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;\n'</span>;</span>
-<span class="line">content += <span class="string">'&lt;span class="line'</span>;</span>
-<span class="line">content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span>
-<span class="line">content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;\n'</span>;</span>
-</pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如此这般之后，多出来的空白行就消失了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;a href=&quot;#解决Hexo贴代码会多出现多余空行问题&quot; class=&quot;headerlink&quot; title=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;/a&gt;解决Hexo贴代码会多出现多余空行问题&lt;/h3&gt;&lt;p&gt;使用
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Selenium定位frame中元素问题</title>
     <link href="http://zjs520.cc/2016/09/07/selenium%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E9%97%AE%E9%A2%98/"/>
     <id>http://zjs520.cc/2016/09/07/selenium元素定位问题/</id>
@@ -625,10 +625,10 @@
     <content type="html"><![CDATA[<p>最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。</p>
 <h2 id="对页面进行分析"><a href="#对页面进行分析" class="headerlink" title="对页面进行分析"></a>对页面进行分析</h2><p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
 <p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userName"</span> <span class="attr">title</span>=<span class="string">"请输入昵称"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入昵称"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span></span>
+</pre></td><td class="code"><pre><span class="line">&lt;input name="username" id="userName" title="请输入昵称" maxlength="50" placeholder="请输入昵称" type="text"&gt;</span>
 </pre></td></tr></table></figure></p>
 <p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userPass"</span> <span class="attr">title</span>=<span class="string">"请输入密码"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">type</span>=<span class="string">"password"</span>&gt;</span></span></span>
+</pre></td><td class="code"><pre><span class="line">&lt;input name="username" id="userPass" title="请输入密码" maxlength="50" placeholder="请输入密码" type="password"&gt;</span>
 </pre></td></tr></table></figure></p>
 <p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
@@ -649,7 +649,7 @@
 <h2 id="重新分析页面"><a href="#重新分析页面" class="headerlink" title="重新分析页面"></a>重新分析页面</h2><p>后来一想，id不能定位，xpath呢？</p>
 <p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png" alt="Alt text"></p>
 <p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">style</span>=<span class="string">"display: inline;"</span> <span class="attr">id</span>=<span class="string">"log-url"</span> <span class="attr">src</span>=<span class="string">"http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh"</span> <span class="attr">allowtransparency</span>=<span class="string">"true"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span>
+</pre></td><td class="code"><pre><span class="line">&lt;iframe style="display: inline;" id="log-url" src="http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="100%" width="100%"&gt;&lt;/iframe&gt;</span>
 </pre></td></tr></table></figure></p>
 <p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
