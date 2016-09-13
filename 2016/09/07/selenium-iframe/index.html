@@ -179,7 +179,7 @@
 </pre></td></tr></table></figure></p>
 <p><strong>这样可行吗？？？</strong><br>答案当然是不行的，这个时候我就陷入了深深的疑惑中，肯定是哪里出了问题，但是我找不到。</p>
 <h2 id="重新分析页面"><a href="#重新分析页面" class="headerlink" title="重新分析页面"></a>重新分析页面</h2><p>后来一想，id不能定位，xpath呢？</p>
-<p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png" alt="Alt text"></p>
+<p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
 <p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">&lt;iframe style="display: inline;" id="log-url" src="http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="100%" width="100%"&gt;&lt;/iframe&gt;</span>
 </pre></td></tr></table></figure></p>
