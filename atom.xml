@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jacob‘s blog</title>
+  <subtitle>Good Good Study Day Day Up</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://zjs520.cc/"/>
+  <updated>2016-09-14T06:30:29.000Z</updated>
+  <id>http://zjs520.cc/</id>
+  
+  <author>
+    <name>Jacob</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于GitHub Pages的Hexo搭建博客教程（文字版）</title>
+    <link href="http://zjs520.cc/2016/09/14/hexo_install/"/>
+    <id>http://zjs520.cc/2016/09/14/hexo_install/</id>
+    <published>2016-09-13T16:00:00.000Z</published>
+    <updated>2016-09-14T06:30:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>本文是基于GitHub Pages的Hexo博客搭建文字版教程</strong></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>Git </li>
+<li>Node.js<br>Git和Node.js的安装略过，按操作系统选择适合版本安装。<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2></li>
+<li><a href="https://github.com" target="_blank" rel="external">注册账号</a>（已有账号的请直接登录）<br><code>备注注册账号一定要去邮箱内确认注册，否则无法使用GitHub Pages</code></li>
+<li>创建代码仓库</li>
+</ul>
+<ol>
+<li>点击右上角的➕号，选择<code>New repository</code>，进入代码仓库创建页面；</li>
+<li>在<code>Repository name</code>下填写仓库名称，<code>Description（optional）</code>可不填；</li>
+<li>开启GitHub Pages，进入仓库，选择<code>Settings</code>；</li>
+<li>找到GitHub Pages配置项，点击<code>Launch automatic page generator</code>，进入创建GitHub Pages site 界面；</li>
+<li>内容可以不做修改，直接点击<code>Continue to layouts</code>，进入主题选择页面；</li>
+<li>直接点击<code>Publish page</code>，提示<code>Your project page has been created at http://XXXX.github.io/XXX(仓库名称)/.</code>；</li>
+<li>至此，GitHub会自动创建一个页面，如果配置没有问题，很快就能访问。</li>
+</ol>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><ol>
+<li>打开终端，进入想要安装Hexo的文件夹</li>
+<li>输入命令<code>npm install hexo-cli -g</code></li>
+<li>步骤2完成后，输入命令<code>npm install hexo --save</code></li>
+<li>步骤3完成后，输入<code>hexo -v</code>验证安装是否完成: <blockquote>
+<p>hexo-cli: 1.0.2<br>os: Darwin 15.6.0 darwin x64<br>http_parser: 2.3<br>node: 0.12.7<br>v8: 3.28.71.19<br>uv: 1.6.1<br>zlib: 1.2.8<br>modules: 14<br>openssl: 1.0.1p<br>终端输出这些证明Hexo安装完成</p>
+<h3 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h3><p>继Hexo安装完成后，进行初始化操作：</p>
+</blockquote>
+</li>
+<li><code>hexo init</code></li>
+<li><code>npm install</code>，npm将自动安装需要的组件</li>
+<li><code>hexo g</code>，编译</li>
+<li><code>hexo s</code>，此时会有如下提示：<blockquote>
+<p>INFO  Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.<br>在浏览器中打开<code>http://localhost:4000/</code>即可浏览Hexo默认的blog</p>
+<h2 id="使用Hexo"><a href="#使用Hexo" class="headerlink" title="使用Hexo"></a>使用Hexo</h2><p>待续。。。</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文是基于GitHub Pages的Hexo博客搭建文字版教程&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS + Idea配置 Maven + ReportNG</title>
+    <link href="http://zjs520.cc/2016/09/09/ReportNG/"/>
+    <id>http://zjs520.cc/2016/09/09/ReportNG/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T09:19:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>用testng做接口自动化，testng自带的报告模板不是特别美观，于是找到了ReportNG。</p>
+<h3 id="在maven的pom-xml中添加ReportNG（最新版本为1-1-4）"><a href="#在maven的pom-xml中添加ReportNG（最新版本为1-1-4）" class="headerlink" title="在maven的pom.xml中添加ReportNG（最新版本为1.1.4）"></a>在maven的pom.xml中添加ReportNG（最新版本为1.1.4）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+</pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.uncommons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>reportng<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span>
+<span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span>
+<span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.testng<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span>
+<span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>testng<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span>
+<span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+<p><strong> 备注：使用TestNG6.0+可能会遇到“ClassNotFoundExpection:com.google.inject.Module”问题，这里必须添加Guice，同样在pom.xml文件中继续添加 </strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.inject<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guice<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span>
+</pre></td></tr></table></figure></p>
+<h3 id="添加Surefire插件"><a href="#添加Surefire插件" class="headerlink" title="添加Surefire插件"></a>添加Surefire插件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+</pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span>
+<span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span>
+<span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span>
+<span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span>
+<span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span>
+<span class="line">                <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span>
+<span class="line">                    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span>
+<span class="line">                        <span class="tag">&lt;<span class="name">name</span>&gt;</span>usedefaultlisteners<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span>
+<span class="line">                        <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span>
+<span class="line">                    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span>
+<span class="line">                    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span>
+<span class="line">                        <span class="tag">&lt;<span class="name">name</span>&gt;</span>listener<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span>
+<span class="line">                        <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span>
+<span class="line">                    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span>
+<span class="line">                <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span>
+<span class="line">                <span class="tag">&lt;<span class="name">workingDirectory</span>&gt;</span>target/<span class="tag">&lt;/<span class="name">workingDirectory</span>&gt;</span></span>
+<span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span>
+<span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+<p>至此，最基本的ReportNG报告模板以及添加完成。</p>
+<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p>这里以我之前写的一个Http接口测试为例子：</p>
+<p><a href="http://zjs520.cc/2016/09/09/get请求/">http://zjs520.cc/2016/09/09/get请求/</a></p>
+<ol>
+<li><p>打开终端，进入IDEA测试项目根目录</p>
+</li>
+<li><p>运行命令：mvn clean test，以下为输出内容：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+</pre></td><td class="code"><pre><span class="line">[INFO] Scanning for projects...</span>
+<span class="line">[INFO]                                                                         </span>
+<span class="line">[INFO] ------------------------------------------------------------------------</span>
+<span class="line">[INFO] Building maven 1.0-SNAPSHOT</span>
+<span class="line">[INFO] ------------------------------------------------------------------------</span>
+<span class="line">Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom</span>
+<span class="line">Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom (4 KB at 1.0 KB/sec)</span>
+<span class="line">[INFO] </span>
+<span class="line">[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ maven ---</span>
+<span class="line">[INFO] Deleting /Users/zhangbin/IdeaProjects/HttpTest/target</span>
+<span class="line">[INFO] </span>
+<span class="line">[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ maven ---</span>
+<span class="line">[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!</span>
+<span class="line">[INFO] Copying 0 resource</span>
+<span class="line">[INFO] </span>
+<span class="line">[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ maven ---</span>
+<span class="line">[INFO] Nothing to compile - all classes are up to date</span>
+<span class="line">[INFO] </span>
+<span class="line">[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ maven ---</span>
+<span class="line">[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!</span>
+<span class="line">[INFO] skip non existing resourceDirectory /Users/zhangbin/IdeaProjects/HttpTest/src/test/resources</span>
+<span class="line">[INFO] </span>
+<span class="line">[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ maven ---</span>
+<span class="line">[INFO] Changes detected - recompiling the module!</span>
+<span class="line">[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!</span>
+<span class="line">[INFO] Compiling 2 source files to /Users/zhangbin/IdeaProjects/HttpTest/target/test-classes</span>
+<span class="line">[INFO] </span>
+<span class="line">[INFO] --- maven-surefire-plugin:2.5:test (default-test) @ maven ---</span>
+<span class="line">Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.jar</span>
+<span class="line">Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.jar (38 KB at 14.2 KB/sec)</span>
+<span class="line">Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-testng/2.5/surefire-testng-2.5.pom</span>
+<span class="line">Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-testng/2.5/surefire-testng-2.5.pom (3 KB at 1.8 KB/sec)</span>
+<span class="line">Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.5/surefire-providers-2.5.pom</span>
+<span class="line">Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.5/surefire-providers-2.5.pom (2 KB at 2.1 KB/sec)</span>
+<span class="line">Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-testng/2.5/surefire-testng-2.5.jar</span>
+<span class="line">Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-testng/2.5/surefire-testng-2.5.jar (27 KB at 8.3 KB/sec)</span>
+<span class="line">[INFO] Surefire report directory: /Users/zhangbin/IdeaProjects/HttpTest/target/surefire-reports</span>
+<span class="line"></span>
+<span class="line">-------------------------------------------------------</span>
+<span class="line"> T E S T S</span>
+<span class="line">-------------------------------------------------------</span>
+<span class="line">Running TestSuite</span>
+<span class="line">=======This is BeforeClass=======</span>
+<span class="line">http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?access_token=bb801ee6b9983c7f893473fd6a313ad2&amp;subject_id=1</span>
+<span class="line">http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?access_token=bb801ee6b9983c7f893473fd6a313ad2&amp;subject_id=1<span class="comment">%2C2</span></span>
+<span class="line">http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?access_token=bb801ee6b9983c7f893473fd6a313ad2&amp;subject_id=123</span>
+<span class="line">http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?access_token=bb801ee6b9983c7f893473fd6a313ad2&amp;subject_id=</span>
+<span class="line">This is afterClass</span>
+<span class="line">Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 10.556 sec &lt;&lt;&lt; FAILURE!</span>
+<span class="line"></span>
+<span class="line">Results :</span>
+<span class="line"></span>
+<span class="line">Failed tests: </span>
+<span class="line">  getUri(HttpGetTest)</span>
+<span class="line">  getUri(HttpGetTest)</span>
+<span class="line">  getUri(HttpGetTest)</span>
+<span class="line">  getUri(HttpGetTest)</span>
+<span class="line"></span>
+<span class="line">Tests run: 4, Failures: 4, Errors: 0, Skipped: 0</span>
+<span class="line"></span>
+<span class="line">[INFO] ------------------------------------------------------------------------</span>
+<span class="line">[INFO] BUILD FAILURE</span>
+<span class="line">[INFO] ------------------------------------------------------------------------</span>
+<span class="line">[INFO] Total time: 26.159 s</span>
+<span class="line">[INFO] Finished at: 2016-05-07T16:59:59+08:00</span>
+<span class="line">[INFO] Final Memory: 18M/176M</span>
+<span class="line">[INFO] ------------------------------------------------------------------------</span>
+<span class="line">[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.5:test (default-test) on project maven: There are test failures.</span>
+<span class="line">[ERROR] </span>
+<span class="line">[ERROR] Please refer to /Users/zhangbin/IdeaProjects/HttpTest/target/surefire-reports for the individual test results.</span>
+<span class="line">[ERROR] -&gt; [Help 1]</span>
+<span class="line">[ERROR] </span>
+<span class="line">[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.</span>
+<span class="line">[ERROR] Re-run Maven using the -X switch to enable full debug logging.</span>
+<span class="line">[ERROR] </span>
+<span class="line">[ERROR] For more information about the errors and possible solutions, please read the following articles:</span>
+<span class="line">[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException</span>
+</pre></td></tr></table></figure>
+</li>
+</ol>
+<p>从输出结果可以看出，这个接口是出现问题的</p>
+<ol>
+<li>查看Html报告</li>
+</ol>
+<p>输出结果中有这么一句：</p>
+<blockquote>
+<p>Please refer to /Users/zhangbin/IdeaProjects/HttpTest/target/surefire-reports for the individual test results.</p>
+</blockquote>
+<p>所以我们的Html报告即在项目文件夹中的target、surefire-reports文件夹中，截图我就不再附上了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用testng做接口自动化，testng自带的报告模板不是特别美观，于是找到了ReportNG。&lt;/p&gt;
+&lt;h3 id=&quot;在maven的pom-xml中添加ReportNG（最新版本为1-1-4）&quot;&gt;&lt;a href=&quot;#在maven的pom-xml中添加ReportNG（最
+    
+    </summary>
+    
+    
+      <category term="ReportNG" scheme="http://zjs520.cc/tags/ReportNG/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git clone 报错：SSL certificate problem</title>
+    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
+    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T05:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
+<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
+</blockquote>
+</li>
+</ul>
+<p>解决方法也很简单，一条命令就搞定了：</p>
+<p>git config –global http.sslVerify false</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
+&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo代码块高亮多出空白行问题</title>
+    <link href="http://zjs520.cc/2016/09/09/hexo-code-highlight/"/>
+    <id>http://zjs520.cc/2016/09/09/hexo-code-highlight/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-13T09:03:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
+<p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
+<ol>
+<li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
+<li>修改highlight.js代码35~38行为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line">numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+<span class="line">content += <span class="string">'&lt;span class="line'</span>;</span>
+<span class="line">content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span>
+<span class="line">content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+</pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如此这般之后，多出来的空白行就消失了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;a href=&quot;#解决Hexo贴代码会多出现多余空行问题&quot; class=&quot;headerlink&quot; title=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;/a&gt;解决Hexo贴代码会多出现多余空行问题&lt;/h3&gt;&lt;p&gt;使用
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Httpclient+TestNG】接口自动化测试——GET请求示例</title>
+    <link href="http://zjs520.cc/2016/09/09/httpclient-get/"/>
+    <id>http://zjs520.cc/2016/09/09/httpclient-get/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T07:24:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="先直接上代码"><a href="#先直接上代码" class="headerlink" title="先直接上代码"></a>先直接上代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+<span class="line">101</span>
+<span class="line">102</span>
+<span class="line">103</span>
+<span class="line">104</span>
+<span class="line">105</span>
+<span class="line">106</span>
+<span class="line">107</span>
+<span class="line">108</span>
+<span class="line">109</span>
+<span class="line">110</span>
+<span class="line">111</span>
+<span class="line">112</span>
+<span class="line">113</span>
+<span class="line">114</span>
+<span class="line">115</span>
+<span class="line">116</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> net.sf.json.JSONArray;</span>
+<span class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.config.RequestConfig;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.client.utils.URIBuilder;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</span>
+<span class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</span>
+<span class="line"><span class="keyword">import</span> org.testng.Assert;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.AfterClass;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.BeforeClass;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.DataProvider;</span>
+<span class="line"><span class="keyword">import</span> org.testng.annotations.Test;</span>
+<span class="line"></span>
+<span class="line"><span class="keyword">import</span> java.io.IOException;</span>
+<span class="line"><span class="keyword">import</span> java.net.URI;</span>
+<span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/**</span>
+<span class="line"> * Created by zhangbin on 16/4/26.</span>
+<span class="line"> * 接口链接:http://gateway.zitech.com/gw/oauthentry/study.scene/1.0/getbysid?" 参数access_token,subject_id</span>
+<span class="line"> * asset过程中出现字符类型不同问题,字符类型必须相同才能进行asset</span>
+<span class="line"> */</span></span>
+<span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpGetTest</span> </span>&#123;</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@BeforeClass</span></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeClass</span><span class="params">()</span></span>&#123;</span>
+<span class="line">        System.out.println(<span class="string">"=======This is BeforeClass======="</span>);</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@DataProvider</span>(name=<span class="string">"user"</span>)</span>
+<span class="line">    <span class="keyword">public</span> Object [][] Users()&#123;</span>
+<span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[][]&#123;</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>&#125;,</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"1,2"</span>,<span class="string">"5008"</span>&#125;,</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">"123"</span>,<span class="string">"0"</span>&#125;,</span>
+<span class="line">                &#123;<span class="string">"bb801ee6b9983c7f893473fd6a313ad2"</span>,<span class="string">""</span>,<span class="string">"5008"</span>&#125;</span>
+<span class="line">        &#125;;</span>
+<span class="line"></span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@Test</span>(dataProvider=<span class="string">"user"</span>)</span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getUri</span><span class="params">(String access_token,String subject_id,String hcode)</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 拼接接口链接</span>
+<span class="line">         */</span></span>
+<span class="line">        URI uri = <span class="keyword">new</span> URIBuilder()</span>
+<span class="line">                .setScheme(<span class="string">"http"</span>)</span>
+<span class="line">                .setHost(<span class="string">"gateway.zitech.com/gw/oauthentry"</span>)</span>
+<span class="line">                .setPath(<span class="string">"/study.scene/1.0/getbysid"</span>)</span>
+<span class="line">                .setParameter(<span class="string">"access_token"</span>,access_token)</span>
+<span class="line">                .setParameter(<span class="string">"subject_id"</span>,subject_id)</span>
+<span class="line">                .build();</span>
+<span class="line">        System.out.println(uri);</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 创建httpclient</span>
+<span class="line">         */</span></span>
+<span class="line">        CloseableHttpClient httpClient = HttpClients.createDefault();</span>
+<span class="line">        HttpGet httpGet = <span class="keyword">new</span> HttpGet(uri);</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 设置超时时间</span>
+<span class="line">         */</span></span>
+<span class="line">        RequestConfig requestConfig = RequestConfig.custom()</span>
+<span class="line">                .setSocketTimeout(<span class="number">2000</span>)</span>
+<span class="line">                .setConnectionRequestTimeout(<span class="number">2000</span>)</span>
+<span class="line">                .build();</span>
+<span class="line">        httpGet.setConfig(requestConfig);</span>
+<span class="line"></span>
+<span class="line">        CloseableHttpResponse response = httpClient.execute(httpGet);</span>
+<span class="line">        System.out.println(<span class="string">"响应码:"</span> + response.getStatusLine().getStatusCode());</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 获取服务器响应内容</span>
+<span class="line">         */</span></span>
+<span class="line">        String returnStr = EntityUtils.toString(response.getEntity());</span>
+<span class="line"><span class="comment">//        System.out.println("响应内容:" + returnStr);</span></span>
+<span class="line"></span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 解析json</span>
+<span class="line">         */</span></span>
+<span class="line">        JSONObject jsonObject = JSONObject.fromObject(returnStr);</span>
+<span class="line"><span class="comment">//        System.out.println(jsonObject.has("message"));</span></span>
+<span class="line"><span class="comment">//        System.out.println(jsonObject.getString("message"));</span></span>
+<span class="line">        String code = jsonObject.getString(<span class="string">"code"</span>);</span>
+<span class="line">        String message = jsonObject.getString(<span class="string">"message"</span>);</span>
+<span class="line">        <span class="comment">/**</span>
+<span class="line">         * 进行结果验证</span>
+<span class="line">         * 注意asset对象字符类型,此处全为String类型</span>
+<span class="line">         */</span></span>
+<span class="line">        <span class="keyword">if</span> (jsonObject.get(<span class="string">"data"</span>) !=<span class="keyword">null</span> &amp;&amp; code.equals(<span class="string">"0"</span>))&#123;</span>
+<span class="line"></span>
+<span class="line">            JSONArray array = jsonObject.getJSONArray(<span class="string">"data"</span>);</span>
+<span class="line">            <span class="keyword">if</span> (array.size() &gt; <span class="number">0</span>)&#123;</span>
+<span class="line">                JSONObject data = array.getJSONObject(<span class="number">0</span>);</span>
+<span class="line">                String su_id = data.getString(<span class="string">"subjectId"</span>);</span>
+<span class="line">                System.out.println(<span class="string">"subjectId:"</span> + su_id);</span>
+<span class="line">                Assert.assertEquals(subject_id,su_id);</span>
+<span class="line"></span>
+<span class="line">            &#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">                Assert.assertEquals(hcode,code);</span>
+<span class="line">                System.out.println(code);</span>
+<span class="line">            &#125;</span>
+<span class="line">        &#125;</span>
+<span class="line">        <span class="keyword">else</span> &#123;</span>
+<span class="line">            Assert.assertEquals(hcode,code);</span>
+<span class="line">        &#125;</span>
+<span class="line">        System.out.println(<span class="string">"message:"</span> + message);</span>
+<span class="line"></span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@AfterClass</span></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterClass</span><span class="params">()</span></span>&#123;</span>
+<span class="line">        System.out.println(<span class="string">"This is afterClass"</span>);</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>回头再整理一份说明文档~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;先直接上代码&quot;&gt;&lt;a href=&quot;#先直接上代码&quot; class=&quot;headerlink&quot; title=&quot;先直接上代码&quot;&gt;&lt;/a&gt;先直接上代码&lt;/h3&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutt
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://zjs520.cc/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Selenium定位frame中元素问题</title>
+    <link href="http://zjs520.cc/2016/09/07/selenium-iframe/"/>
+    <id>http://zjs520.cc/2016/09/07/selenium-iframe/</id>
+    <published>2016-09-07T14:26:46.000Z</published>
+    <updated>2016-09-13T09:04:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。</p>
+<h2 id="对页面进行分析"><a href="#对页面进行分析" class="headerlink" title="对页面进行分析"></a>对页面进行分析</h2><p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
+<p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userName"</span> <span class="attr">title</span>=<span class="string">"请输入昵称"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入昵称"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span></span>
+</pre></td></tr></table></figure></p>
+<p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userPass"</span> <span class="attr">title</span>=<span class="string">"请输入密码"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">type</span>=<span class="string">"password"</span>&gt;</span></span></span>
+</pre></td></tr></table></figure></p>
+<p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line">driver = webdriver.Firefox()</span>
+<span class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></span>
+<span class="line"></span>
+<span class="line">driver.get(url)</span>
+<span class="line">time.sleep(<span class="number">5</span>)</span>
+<span class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</span>
+<span class="line">driver.find_element_by_xpath(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</span>
+</pre></td></tr></table></figure></p>
+<p><strong>这样可行吗？？？</strong><br>答案当然是不行的，这个时候我就陷入了深深的疑惑中，肯定是哪里出了问题，但是我找不到。</p>
+<h2 id="重新分析页面"><a href="#重新分析页面" class="headerlink" title="重新分析页面"></a>重新分析页面</h2><p>后来一想，id不能定位，xpath呢？</p>
+<p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
+<p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">style</span>=<span class="string">"display: inline;"</span> <span class="attr">id</span>=<span class="string">"log-url"</span> <span class="attr">src</span>=<span class="string">"http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh"</span> <span class="attr">allowtransparency</span>=<span class="string">"true"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span>
+</pre></td></tr></table></figure></p>
+<p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></span>
+<span class="line"></span>
+<span class="line">driver.get(url)</span>
+<span class="line">time.sleep(<span class="number">5</span>)</span>
+<span class="line">driver.switch_to.frame(<span class="string">"log-url"</span>)</span>
+<span class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</span>
+<span class="line">driver.find_element_by_id(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</span>
+</pre></td></tr></table></figure></p>
+<p>就是这个driver.switch_to.frame()方法<br>返回原来的界面可以用driver.SwitchTo().DefaultContent()方法</p>
+<p>至此，解决了登录页面元素定位问题，迈出了第一步。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。&lt;/p&gt;
+&lt;h2 id=&quot;对页面进行分析&quot;&gt;&lt;a href=&quot;#对页面进行分析&quot; class=&quot;headerlink&quot; title=&quot;对页面进
+    
+    </summary>
+    
+    
+      <category term="Selenium" scheme="http://zjs520.cc/tags/Selenium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac安装zsh后必须多次执行`source.bash_profile`解决方案</title>
+    <link href="http://zjs520.cc/2016/09/07/Mac-zsh/"/>
+    <id>http://zjs520.cc/2016/09/07/Mac-zsh/</id>
+    <published>2016-09-06T16:00:00.000Z</published>
+    <updated>2016-09-09T05:27:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Mac-安装zsh后必须多次执行source-bash-profile解决方案"><a href="#Mac-安装zsh后必须多次执行source-bash-profile解决方案" class="headerlink" title="Mac 安装zsh后必须多次执行source .bash_profile解决方案"></a>Mac 安装zsh后必须多次执行<code>source .bash_profile</code>解决方案</h2><p>最近重新安装zsh后发现原先配好的maven环境变量失效了，重新 <code>source .bash_profile</code> 后又生效了；</p>
+<p>但是，关闭终端重新打开后，maven环境变量又失效…总不能每次都执行一遍source .bash_profile；</p>
+<p>搜索一番后找到了解决方法：</p>
+<blockquote>
+<p>在~/.zshrc文件末尾加上 source .bash_profile 即可。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Mac-安装zsh后必须多次执行source-bash-profile解决方案&quot;&gt;&lt;a href=&quot;#Mac-安装zsh后必须多次执行source-bash-profile解决方案&quot; class=&quot;headerlink&quot; title=&quot;Mac 安装zsh后必须多次
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="http://zjs520.cc/tags/Mac/"/>
+    
+  </entry>
+  
+</feed>
