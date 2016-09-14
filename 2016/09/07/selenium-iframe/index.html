@@ -8,7 +8,7 @@
     <meta name="360-site-verification" content="53b4a0819cec9cb488080e8ea079069f" />
     <meta name="google-site-verification" content="-pwn8w3svD2HT9wkZnPS2J_loSlpg3x8SvbxCbgZTEo" />
     
-    <title>Selenium定位frame中元素问题 | Jacob&#39;s Blog</title>
+    <title>Selenium定位frame中元素问题 | Jacob‘s blog</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -19,15 +19,15 @@
     <meta name="description" content="好好学习 天天向上">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Selenium定位frame中元素问题 | Jacob&#39;s Blog">
+    <meta name="twitter:title" content="Selenium定位frame中元素问题 | Jacob‘s blog">
     <meta name="twitter:description" content="好好学习 天天向上">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Selenium定位frame中元素问题 | Jacob&#39;s Blog">
+    <meta property="og:title" content="Selenium定位frame中元素问题 | Jacob‘s blog">
     <meta property="og:description" content="好好学习 天天向上">
 
     
-    <meta name="author" content="jacob">
+    <meta name="author" content="Jacob">
     
     <link rel="stylesheet" href="/css/vno.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
@@ -38,7 +38,7 @@
 
     <meta name="generator" content="hexo"/>
     
-    <link rel="alternate" type="application/rss+xml" title="Jacob&#39;s Blog" href="/atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="Jacob‘s blog" href="/atom.xml">
     
 
     <link rel="canonical" href="http://zjs520.cc/2016/09/07/selenium-iframe/"/>
@@ -61,8 +61,8 @@
     <div class="panel-main__inner panel-inverted">
     <div class="panel-main__content">
 
-        <a href="/" title="前往 Jacob&#39;s Blog 的主页"><img src="/images/avatar.jpg" width="80" alt="Jacob&#39;s Blog logo" class="panel-cover__logo logo" /></a>
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Jacob&#39;s Blog">Jacob&#39;s Blog</a></h1>
+        <a href="/" title="前往 Jacob‘s blog 的主页"><img src="/images/avatar.jpg" width="80" alt="Jacob‘s blog logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Jacob‘s blog">Jacob‘s blog</a></h1>
         
         <span class="panel-cover__subtitle panel-subtitle">Good Good Study Day Day Up</span>
         
@@ -157,10 +157,10 @@
     <p>最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。</p>
 <h2 id="对页面进行分析"><a href="#对页面进行分析" class="headerlink" title="对页面进行分析"></a>对页面进行分析</h2><p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
 <p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">&lt;input name="username" id="userName" title="请输入昵称" maxlength="50" placeholder="请输入昵称" type="text"&gt;</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userName"</span> <span class="attr">title</span>=<span class="string">"请输入昵称"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入昵称"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span></span>
 </pre></td></tr></table></figure></p>
 <p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">&lt;input name="username" id="userPass" title="请输入密码" maxlength="50" placeholder="请输入密码" type="password"&gt;</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userPass"</span> <span class="attr">title</span>=<span class="string">"请输入密码"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">type</span>=<span class="string">"password"</span>&gt;</span></span></span>
 </pre></td></tr></table></figure></p>
 <p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
@@ -181,7 +181,7 @@
 <h2 id="重新分析页面"><a href="#重新分析页面" class="headerlink" title="重新分析页面"></a>重新分析页面</h2><p>后来一想，id不能定位，xpath呢？</p>
 <p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
 <p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">&lt;iframe style="display: inline;" id="log-url" src="http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="100%" width="100%"&gt;&lt;/iframe&gt;</span>
+</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">style</span>=<span class="string">"display: inline;"</span> <span class="attr">id</span>=<span class="string">"log-url"</span> <span class="attr">src</span>=<span class="string">"http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh"</span> <span class="attr">allowtransparency</span>=<span class="string">"true"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span>
 </pre></td></tr></table></figure></p>
 <p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
@@ -315,11 +315,10 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/09/09/ReportNG/" title="MacOS + Idea配置 Maven + ReportNG">MacOS + Idea配置 Maven + ReportNG</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2016/09/09/httpclient-get/" title="【Httpclient+TestNG】接口自动化测试——GET请求示例">【Httpclient+TestNG】接口自动化测试——GET请求示例</a></h2>
                 <p class="excerpt">
                 
-                用testng做接口自动化，testng自带的报告模板不是特别美观，于是找到了ReportNG。
-在maven的pom.xml中添加ReportNG（最新版本为1.1.4）1
+                先直接上代码1
 2
 3
 4
@@ -332,13 +331,50 @@
 11
 12
 13
-&amp;lt;dependencies&amp;gt;
-    &amp;lt;depen
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2016-09-08T16:00:00.000Z" class="post-list__meta--date date">2016-09-09</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/ReportNG/">ReportNG</a>
-</span><a class="btn-border-small" href="/2016/09/09/ReportNG/">继续阅读</a></div>
+  <a class="tag-link" href="/tags/接口测试/">接口测试</a>
+</span><a class="btn-border-small" href="/2016/09/09/httpclient-get/">继续阅读</a></div>
                            
             </div>
         
