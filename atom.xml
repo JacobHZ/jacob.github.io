@@ -72,6 +72,36 @@
   </entry>
   
   <entry>
+    <title>git clone 报错：SSL certificate problem</title>
+    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
+    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T05:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
+<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
+</blockquote>
+</li>
+</ul>
+<p>解决方法也很简单，一条命令就搞定了：</p>
+<p>git config –global http.sslVerify false</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
+&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MacOS + Idea配置 Maven + ReportNG</title>
     <link href="http://zjs520.cc/2016/09/09/ReportNG/"/>
     <id>http://zjs520.cc/2016/09/09/ReportNG/</id>
@@ -348,36 +378,6 @@
     
     
       <category term="ReportNG" scheme="http://zjs520.cc/tags/ReportNG/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git clone 报错：SSL certificate problem</title>
-    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
-    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T05:33:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
-<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
-</blockquote>
-</li>
-</ul>
-<p>解决方法也很简单，一条命令就搞定了：</p>
-<p>git config –global http.sslVerify false</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
-&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
     
   </entry>
   
