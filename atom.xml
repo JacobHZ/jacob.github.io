@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjs520.cc/"/>
-  <updated>2016-09-15T15:05:39.000Z</updated>
+  <updated>2016-09-22T06:13:19.000Z</updated>
   <id>http://zjs520.cc/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题</title>
+    <link href="http://zjs520.cc/2016/09/22/itunes/"/>
+    <id>http://zjs520.cc/2016/09/22/itunes/</id>
+    <published>2016-09-21T16:00:00.000Z</published>
+    <updated>2016-09-22T06:13:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="解决iTunes-无法验证服务器“s-mzstatic-com-”的身份-问题"><a href="#解决iTunes-无法验证服务器“s-mzstatic-com-”的身份-问题" class="headerlink" title="解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题"></a>解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题</h2><p>iOS10出了之后想第一时间更新，结果听闻OTA升级iOS10会出问题，遂连上Mac，准备用iTunes升级，结果也是个坑；</p>
+<p>一点更新之后就提示 <strong>iTunes 无法验证服务器“s.mzstatic.com.”的身份</strong> </p>
+<p>这我就很纳闷了，先找到了<a href="https://discussionschinese.apple.com/thread/87613?start=0&amp;tstart=0" target="_blank" rel="external">官方的解决办法</a>，无非是让我检查网络连接什么的，完全无用；</p>
+<p>最后还是得从别的地方找到解决办法：DNS多添加一组8.8.8.8和8.8.4.4，然后就能顺利更新iOS10了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;解决iTunes-无法验证服务器“s-mzstatic-com-”的身份-问题&quot;&gt;&lt;a href=&quot;#解决iTunes-无法验证服务器“s-mzstatic-com-”的身份-问题&quot; class=&quot;headerlink&quot; title=&quot;解决iTunes 无法验证服
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="http://zjs520.cc/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>基于GitHub Pages的Hexo搭建博客教程（文字版）</title>
@@ -74,41 +98,11 @@
   </entry>
   
   <entry>
-    <title>git clone 报错：SSL certificate problem</title>
-    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
-    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T05:33:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
-<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
-</blockquote>
-</li>
-</ul>
-<p>解决方法也很简单，一条命令就搞定了：</p>
-<p>git config –global http.sslVerify false</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
-&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MacOS + Idea配置 Maven + ReportNG</title>
     <link href="http://zjs520.cc/2016/09/09/ReportNG/"/>
     <id>http://zjs520.cc/2016/09/09/ReportNG/</id>
     <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T09:19:05.000Z</updated>
+    <updated>2016-09-22T06:06:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>用testng做接口自动化，testng自带的报告模板不是特别美观，于是找到了ReportNG。</p>
 <h3 id="在maven的pom-xml中添加ReportNG（最新版本为1-1-4）"><a href="#在maven的pom-xml中添加ReportNG（最新版本为1-1-4）" class="headerlink" title="在maven的pom.xml中添加ReportNG（最新版本为1.1.4）"></a>在maven的pom.xml中添加ReportNG（最新版本为1.1.4）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
@@ -198,7 +192,7 @@
 </pre></td></tr></table></figure>
 <p>至此，最基本的ReportNG报告模板以及添加完成。</p>
 <h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p>这里以我之前写的一个Http接口测试为例子：</p>
-<p><a href="http://zjs520.cc/2016/09/09/get请求/">http://zjs520.cc/2016/09/09/get请求/</a></p>
+<p><a href="http://zjs520.cc/2016/09/09/ReportNG/">http://zjs520.cc/2016/09/09/ReportNG/</a></p>
 <ol>
 <li><p>打开终端，进入IDEA测试项目根目录</p>
 </li>
@@ -380,42 +374,6 @@
     
     
       <category term="ReportNG" scheme="http://zjs520.cc/tags/ReportNG/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo代码块高亮多出空白行问题</title>
-    <link href="http://zjs520.cc/2016/09/09/hexo-code-highlight/"/>
-    <id>http://zjs520.cc/2016/09/09/hexo-code-highlight/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-13T09:03:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
-<p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
-<ol>
-<li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
-<li>修改highlight.js代码35~38行为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-</pre></td><td class="code"><pre><span class="line">numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;\n'</span>;</span>
-<span class="line">content += <span class="string">'&lt;span class="line'</span>;</span>
-<span class="line">content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span>
-<span class="line">content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;\n'</span>;</span>
-</pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如此这般之后，多出来的空白行就消失了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;a href=&quot;#解决Hexo贴代码会多出现多余空行问题&quot; class=&quot;headerlink&quot; title=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;/a&gt;解决Hexo贴代码会多出现多余空行问题&lt;/h3&gt;&lt;p&gt;使用
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
     
   </entry>
   
@@ -670,6 +628,72 @@
     
     
       <category term="接口测试" scheme="http://zjs520.cc/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo代码块高亮多出空白行问题</title>
+    <link href="http://zjs520.cc/2016/09/09/hexo-code-highlight/"/>
+    <id>http://zjs520.cc/2016/09/09/hexo-code-highlight/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-13T09:03:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
+<p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
+<ol>
+<li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
+<li>修改highlight.js代码35~38行为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line">numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+<span class="line">content += <span class="string">'&lt;span class="line'</span>;</span>
+<span class="line">content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span>
+<span class="line">content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+</pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如此这般之后，多出来的空白行就消失了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;a href=&quot;#解决Hexo贴代码会多出现多余空行问题&quot; class=&quot;headerlink&quot; title=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;/a&gt;解决Hexo贴代码会多出现多余空行问题&lt;/h3&gt;&lt;p&gt;使用
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git clone 报错：SSL certificate problem</title>
+    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
+    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T05:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
+<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
+</blockquote>
+</li>
+</ul>
+<p>解决方法也很简单，一条命令就搞定了：</p>
+<p>git config –global http.sslVerify false</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
+&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
     
   </entry>
   
