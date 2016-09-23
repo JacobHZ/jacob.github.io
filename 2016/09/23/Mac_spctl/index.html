@@ -9,7 +9,7 @@
     <meta name="360-site-verification" content="53b4a0819cec9cb488080e8ea079069f" />
     <meta name="google-site-verification" content="-pwn8w3svD2HT9wkZnPS2J_loSlpg3x8SvbxCbgZTEo" />
     
-    <title>解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题 | Jacob‘s blog</title>
+    <title>解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题 | Jacob‘s blog</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -17,24 +17,18 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta name="description" content="解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题iOS10出了之后想第一时间更新，结果听闻OTA升级iOS10会出问题，遂连上Mac，准备用iTunes升级，结果也是个坑；
-一点更新之后就提示 iTunes 无法验证服务器“s.mzstatic.com.”的身份 
-这我就很纳闷了，先找到了官方的解决办法，无非是让我检查网络连接什么的，完全无用；
-最后还是得从别的地方找">
+    <meta name="description" content="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题在升级macOS Sierra之后，发现「系统偏好设置 - 安全与隐私 - 通用」中「允许任何来源应用运行」的选项消失了，这是因为 macOS Sierra 加强了系统安全性，降低不良应用威胁电脑安全的几率，但是这也导致某些未经过开发者签名的应用无法在电脑上正常运行。
+要想找回这个选项，可以在终端中输入sudo spctl --">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题 | Jacob‘s blog">
-    <meta name="twitter:description" content="解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题iOS10出了之后想第一时间更新，结果听闻OTA升级iOS10会出问题，遂连上Mac，准备用iTunes升级，结果也是个坑；
-一点更新之后就提示 iTunes 无法验证服务器“s.mzstatic.com.”的身份 
-这我就很纳闷了，先找到了官方的解决办法，无非是让我检查网络连接什么的，完全无用；
-最后还是得从别的地方找">
+    <meta name="twitter:title" content="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题 | Jacob‘s blog">
+    <meta name="twitter:description" content="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题在升级macOS Sierra之后，发现「系统偏好设置 - 安全与隐私 - 通用」中「允许任何来源应用运行」的选项消失了，这是因为 macOS Sierra 加强了系统安全性，降低不良应用威胁电脑安全的几率，但是这也导致某些未经过开发者签名的应用无法在电脑上正常运行。
+要想找回这个选项，可以在终端中输入sudo spctl --">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题 | Jacob‘s blog">
-    <meta property="og:description" content="解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题iOS10出了之后想第一时间更新，结果听闻OTA升级iOS10会出问题，遂连上Mac，准备用iTunes升级，结果也是个坑；
-一点更新之后就提示 iTunes 无法验证服务器“s.mzstatic.com.”的身份 
-这我就很纳闷了，先找到了官方的解决办法，无非是让我检查网络连接什么的，完全无用；
-最后还是得从别的地方找">
+    <meta property="og:title" content="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题 | Jacob‘s blog">
+    <meta property="og:description" content="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题在升级macOS Sierra之后，发现「系统偏好设置 - 安全与隐私 - 通用」中「允许任何来源应用运行」的选项消失了，这是因为 macOS Sierra 加强了系统安全性，降低不良应用威胁电脑安全的几率，但是这也导致某些未经过开发者签名的应用无法在电脑上正常运行。
+要想找回这个选项，可以在终端中输入sudo spctl --">
 
     
     <meta name="author" content="Jacob">
@@ -51,7 +45,7 @@
     <link rel="alternate" type="application/rss+xml" title="Jacob‘s blog" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://zjs520.cc/2016/09/22/itunes/"/>
+    <link rel="canonical" href="http://zjs520.cc/2016/09/23/Mac_spctl/"/>
 
     
       
@@ -152,7 +146,7 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-09-21T16:00:00.000Z" class="post-list__meta--date date">2016-09-22</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+      <time datetime="2016-09-22T16:00:00.000Z" class="post-list__meta--date date">2016-09-23</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
   <a class="tag-link" href="/tags/Mac/">Mac</a>
  </span>
       <span class="page-pv">
@@ -160,14 +154,12 @@
       </span> 
    
     </div>
-    <h1 class="post-title">解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题</h1>
+    <h1 class="post-title">解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题</h1>
   </header>
 
   <section class="post">
-    <h2 id="解决iTunes-无法验证服务器“s-mzstatic-com-”的身份-问题"><a href="#解决iTunes-无法验证服务器“s-mzstatic-com-”的身份-问题" class="headerlink" title="解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题"></a>解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题</h2><p>iOS10出了之后想第一时间更新，结果听闻OTA升级iOS10会出问题，遂连上Mac，准备用iTunes升级，结果也是个坑；</p>
-<p>一点更新之后就提示 <strong>iTunes 无法验证服务器“s.mzstatic.com.”的身份</strong> </p>
-<p>这我就很纳闷了，先找到了<a href="https://discussionschinese.apple.com/thread/87613?start=0&amp;tstart=0" target="_blank" rel="external">官方的解决办法</a>，无非是让我检查网络连接什么的，完全无用；</p>
-<p>最后还是得从别的地方找到解决办法：DNS多添加一组8.8.8.8和8.8.4.4，然后就能顺利更新iOS10了</p>
+    <h2 id="解决更新macOS-Sierra后找不到“允许任何来源应用运行”的问题"><a href="#解决更新macOS-Sierra后找不到“允许任何来源应用运行”的问题" class="headerlink" title="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题"></a>解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题</h2><p>在升级macOS Sierra之后，发现「系统偏好设置 - 安全与隐私 - 通用」中「允许任何来源应用运行」的选项消失了，这是因为 macOS Sierra 加强了系统安全性，降低不良应用威胁电脑安全的几率，但是这也导致某些未经过开发者签名的应用无法在电脑上正常运行。</p>
+<p>要想找回这个选项，可以在终端中输入<code>sudo spctl --master-disable</code>指令，验证密码之后即可重新开启这个选项。</p>
 
   </section>
 
@@ -280,42 +272,22 @@
 <section class="read-more">
            
     
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/09/23/Mac_spctl/" title="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题">解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题</a></h2>
-                <p class="excerpt">
-                
-                解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题在升级macOS Sierra之后，发现「系统偏好设置 - 安全与隐私 - 通用」中「允许任何来源应用运行」的选项消失了，这是因为 macOS Sierra 加强了系统安全性，降低不良应用威胁电脑安全的几率，但是这也导致某些未经过
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2016-09-22T16:00:00.000Z" class="post-list__meta--date date">2016-09-23</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/Mac/">Mac</a>
-</span><a class="btn-border-small" href="/2016/09/23/Mac_spctl/">继续阅读</a></div>
-                           
-            </div>
         
         
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/09/14/hexo_install/" title="基于GitHub Pages的Hexo搭建博客教程（文字版）">基于GitHub Pages的Hexo搭建博客教程（文字版）</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2016/09/22/itunes/" title="解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题">解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题</a></h2>
                 <p class="excerpt">
                 
-                本文是基于GitHub Pages的Hexo博客搭建文字版教程
-准备工作
-Git 
-Node.jsGit和Node.js的安装略过，按操作系统选择适合版本安装。Github
-注册账号（已有账号的请直接登录）备注注册账号一定要去邮箱内确认注册，否则无法使用GitHub Pages
-创建代码仓库
-
-
-点
+                解决iTunes 无法验证服务器“s.mzstatic.com.”的身份 问题iOS10出了之后想第一时间更新，结果听闻OTA升级iOS10会出问题，遂连上Mac，准备用iTunes升级，结果也是个坑；
+一点更新之后就提示 iTunes 无法验证服务器“s.mzstatic.com.”的身份 
+这我
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2016-09-13T16:00:00.000Z" class="post-list__meta--date date">2016-09-14</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/Hexo/">Hexo</a>
-</span><a class="btn-border-small" href="/2016/09/14/hexo_install/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2016-09-21T16:00:00.000Z" class="post-list__meta--date date">2016-09-22</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Mac/">Mac</a>
+</span><a class="btn-border-small" href="/2016/09/22/itunes/">继续阅读</a></div>
                        
             </div>
         
@@ -328,7 +300,7 @@ Node.jsGit和Node.js的安装略过，按操作系统选择适合版本安装。
             
 <section class="post-comments">
   <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="http://zjs520.cc/2016/09/22/itunes/" data-title="解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题" data-url="http://zjs520.cc/2016/09/22/itunes/"></div>
+  <div class="ds-thread" data-thread-key="http://zjs520.cc/2016/09/23/Mac_spctl/" data-title="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题" data-url="http://zjs520.cc/2016/09/23/Mac_spctl/"></div>
   <!-- 多说评论框 end -->
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">

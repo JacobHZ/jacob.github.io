@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjs520.cc/"/>
-  <updated>2016-09-22T06:13:19.000Z</updated>
+  <updated>2016-09-23T01:25:30.000Z</updated>
   <id>http://zjs520.cc/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题</title>
+    <link href="http://zjs520.cc/2016/09/23/Mac_spctl/"/>
+    <id>http://zjs520.cc/2016/09/23/Mac_spctl/</id>
+    <published>2016-09-22T16:00:00.000Z</published>
+    <updated>2016-09-23T01:25:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="解决更新macOS-Sierra后找不到“允许任何来源应用运行”的问题"><a href="#解决更新macOS-Sierra后找不到“允许任何来源应用运行”的问题" class="headerlink" title="解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题"></a>解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题</h2><p>在升级macOS Sierra之后，发现「系统偏好设置 - 安全与隐私 - 通用」中「允许任何来源应用运行」的选项消失了，这是因为 macOS Sierra 加强了系统安全性，降低不良应用威胁电脑安全的几率，但是这也导致某些未经过开发者签名的应用无法在电脑上正常运行。</p>
+<p>要想找回这个选项，可以在终端中输入<code>sudo spctl --master-disable</code>指令，验证密码之后即可重新开启这个选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;解决更新macOS-Sierra后找不到“允许任何来源应用运行”的问题&quot;&gt;&lt;a href=&quot;#解决更新macOS-Sierra后找不到“允许任何来源应用运行”的问题&quot; class=&quot;headerlink&quot; title=&quot;解决更新macOS Sierra后找不到“允
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="http://zjs520.cc/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>解决更新iOS10出现iTunes 无法验证服务器“s.mzstatic.com.”的身份问题</title>
