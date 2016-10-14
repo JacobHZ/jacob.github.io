@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjs520.cc/"/>
-  <updated>2016-09-23T01:25:30.000Z</updated>
+  <updated>2016-10-14T03:29:15.000Z</updated>
   <id>http://zjs520.cc/</id>
   
   <author>
@@ -14,6 +14,206 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Selenium+Python+PhantomJS以静默方式完成前端页面UI自动化测试</title>
+    <link href="http://zjs520.cc/2016/10/14/Selenium+PhantomJS/"/>
+    <id>http://zjs520.cc/2016/10/14/Selenium+PhantomJS/</id>
+    <published>2016-10-13T16:00:00.000Z</published>
+    <updated>2016-10-14T03:29:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="关于Selenium"><a href="#关于Selenium" class="headerlink" title="关于Selenium"></a>关于Selenium</h3><p>Selenium是一个Web的自动化测试工具，可以在多平台下操作多种浏览器进行各种动作，比如运行浏览器，访问页面，点击按钮，提交表单，浏览器窗口调整，鼠标右键和拖放动作，下拉框和对话框处理等。</p>
+<h3 id="关于PhantomJs"><a href="#关于PhantomJs" class="headerlink" title="关于PhantomJs"></a>关于PhantomJs</h3><p>PhantomJs可以看作一个没有页面的浏览器，有渲染引擎（QtWebkit）和JS引擎（JavascriptCore）。PhantomJs有DOM渲染，JS运行，网络访问，网页截图等多个功能。<br>使用PhantomJS，而不用Chromedriver和firefox，主要是因为PhantomJS的静默方式（后台运行，不打开浏览器)。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>sudo pip install selenium<br>sudo apt-get install PhantomJS</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ul>
+<li>Selenium下载地址：<a href="https://pypi.python.org/pypi/selenium#downloads" target="_blank" rel="external">https://pypi.python.org/pypi/selenium#downloads</a></li>
+<li>PhantomJS下载地址：<a href="http://phantomjs.org/download.html" target="_blank" rel="external">http://phantomjs.org/download.html</a></li>
+</ul>
+<h3 id="以一个简单的UI自动化代码进行示例："><a href="#以一个简单的UI自动化代码进行示例：" class="headerlink" title="以一个简单的UI自动化代码进行示例："></a>以一个简单的UI自动化代码进行示例：</h3><ul>
+<li>这里运用了 python+unittest+BSTestRunner 进行测试，这块内容后续推出<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span>
+<span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span>
+<span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span>
+<span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span>
+<span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> NoSuchElementException</span>
+<span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> NoAlertPresentException</span>
+<span class="line"><span class="keyword">import</span> unittest, time, re</span>
+<span class="line"><span class="keyword">import</span> BSTestRunner</span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">operation_test</span><span class="params">(unittest.TestCase)</span>:</span></span>
+<span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span>
+<span class="line">        self.driver = webdriver.Chrome(<span class="string">"/Users/zhangbin/chromedriver"</span>)</span>
+<span class="line">        self.driver.implicitly_wait(<span class="number">30</span>)</span>
+<span class="line">        self.base_url = <span class="string">"https://www.uyuntest.cn/"</span></span>
+<span class="line">        self.verificationErrors = []</span>
+<span class="line">        self.accept_next_alert = <span class="keyword">True</span></span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_operation</span><span class="params">(self)</span>:</span></span>
+<span class="line">        driver = self.driver</span>
+<span class="line">        driver.get(self.base_url + <span class="string">"/tenant/#/login?return_insite=https://automation.uyuntest.cn/"</span>)</span>
+<span class="line">        driver.set_window_size(<span class="number">1680</span>,<span class="number">1050</span>)</span>
+<span class="line">        driver.find_element_by_id(<span class="string">"email"</span>).clear()</span>
+<span class="line">        driver.find_element_by_id(<span class="string">"email"</span>).send_keys(<span class="string">"XXXXX"</span>) <span class="comment"># 隐藏账号</span></span>
+<span class="line">        driver.find_element_by_id(<span class="string">"passwd"</span>).clear()</span>
+<span class="line">        driver.find_element_by_id(<span class="string">"passwd"</span>).send_keys(<span class="string">"XXXX"</span>) <span class="comment"># 隐藏密码</span></span>
+<span class="line">        driver.find_element_by_css_selector(<span class="string">"button[type=\"submit\"]"</span>).click()</span>
+<span class="line">        driver.find_element_by_xpath(<span class="string">"/html/body/aside/nav/ul/li[4]/a"</span>).click()</span>
+<span class="line"></span>
+<span class="line">        driver.find_element_by_xpath(<span class="string">"/html/body/div[1]/div/div[2]/div/div[1]/div[2]/span/div/div/div/div[2]/a"</span>).click()</span>
+<span class="line">        driver.find_element_by_css_selector(<span class="string">"input"</span>).clear()</span>
+<span class="line">        driver.find_element_by_css_selector(<span class="string">"input"</span>).send_keys(<span class="string">u"自动化新建操作"</span>)</span>
+<span class="line">        driver.find_element_by_xpath(<span class="string">"//div[@id='layout-content']/div/div[2]/div/section/div[3]/div/span/i"</span>).click()</span>
+<span class="line">        time.sleep(<span class="number">5</span>)</span>
+<span class="line">        driver.find_element_by_xpath(<span class="string">"/html/body/div[6]/div/div/ul[1]/li[2]"</span>).click()</span>
+<span class="line">        time.sleep(<span class="number">3</span>)</span>
+<span class="line">        driver.find_element_by_xpath(<span class="string">"/html/body/div[6]/div/div/ul[2]/li[2]"</span>).click()</span>
+<span class="line">        driver.find_element_by_xpath(<span class="string">"/html/body/div[6]/div/div/ul[1]/li[1]"</span>).click</span>
+<span class="line">        time.sleep(<span class="number">2</span>)</span>
+<span class="line">        driver.find_element_by_css_selector(<span class="string">"textarea"</span>).clear()</span>
+<span class="line">        driver.find_element_by_css_selector(<span class="string">"textarea"</span>).send_keys(<span class="string">u"自动化输入描述"</span>)</span>
+<span class="line">        time.sleep(<span class="number">3</span>)</span>
+<span class="line"></span>
+<span class="line">        ActionChains(self.driver).send_keys(Keys.TAB).perform()</span>
+<span class="line">        time.sleep(<span class="number">3</span>)</span>
+<span class="line">        ActionChains(self.driver).send_keys(Keys.TAB).perform()</span>
+<span class="line">        time.sleep(<span class="number">3</span>)</span>
+<span class="line">        ActionChains(self.driver).send_keys(Keys.TAB).perform()</span>
+<span class="line">        time.sleep(<span class="number">3</span>)</span>
+<span class="line">        ActionChains(self.driver).send_keys(Keys.TAB).perform()</span>
+<span class="line">        time.sleep(<span class="number">3</span>)</span>
+<span class="line">        ActionChains(self.driver).send_keys(<span class="string">"print"</span>).perform()</span>
+<span class="line">        time.sleep(<span class="number">3</span>)</span>
+<span class="line">        driver.find_element_by_xpath(<span class="string">"//*[@id='layout-content']/div/div[2]/div/section[5]/button[2]"</span>).click()</span>
+<span class="line">        time.sleep(<span class="number">5</span>)</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_element_present</span><span class="params">(self, how, what)</span>:</span></span>
+<span class="line">        <span class="keyword">try</span>: self.driver.find_element(by=how, value=what)</span>
+<span class="line">        <span class="keyword">except</span> NoSuchElementException <span class="keyword">as</span> e: <span class="keyword">return</span> <span class="keyword">False</span></span>
+<span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_alert_present</span><span class="params">(self)</span>:</span></span>
+<span class="line">        <span class="keyword">try</span>: self.driver.switch_to.alert()</span>
+<span class="line">        <span class="keyword">except</span> NoAlertPresentException <span class="keyword">as</span> e: <span class="keyword">return</span> <span class="keyword">False</span></span>
+<span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_alert_and_get_its_text</span><span class="params">(self)</span>:</span></span>
+<span class="line">        <span class="keyword">try</span>:</span>
+<span class="line">            alert = self.driver.switch_to.alert()</span>
+<span class="line">            alert_text = alert.text</span>
+<span class="line">            <span class="keyword">if</span> self.accept_next_alert:</span>
+<span class="line">                alert.accept()</span>
+<span class="line">            <span class="keyword">else</span>:</span>
+<span class="line">                alert.dismiss()</span>
+<span class="line">            <span class="keyword">return</span> alert_text</span>
+<span class="line">        <span class="keyword">finally</span>: self.accept_next_alert = <span class="keyword">True</span></span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span>:</span></span>
+<span class="line">        self.driver.quit()</span>
+<span class="line">        self.assertEqual([], self.verificationErrors)</span>
+<span class="line"></span>
+<span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span>
+<span class="line">    <span class="comment">#unittest.main()</span></span>
+<span class="line">    BSTestRunner.main() <span class="comment"># 使用BSTestRunner调用unittest</span></span>
+</pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样，我在调用该脚本的时候，selenium不会打开任何浏览器，而是以静默方式运行。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;h3 id=&quot;关于Selenium&quot;&gt;&lt;a href=&quot;#关于Selenium&quot; class=&quot;headerlink&quot; title=&quot;关于Sel
+    
+    </summary>
+    
+    
+      <category term="Selenium" scheme="http://zjs520.cc/tags/Selenium/"/>
+    
+  </entry>
   
   <entry>
     <title>解决更新macOS Sierra后找不到“允许任何来源应用运行”的问题</title>
@@ -400,6 +600,72 @@
   </entry>
   
   <entry>
+    <title>git clone 报错：SSL certificate problem</title>
+    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
+    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T05:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
+<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
+</blockquote>
+</li>
+</ul>
+<p>解决方法也很简单，一条命令就搞定了：</p>
+<p>git config –global http.sslVerify false</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
+&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo代码块高亮多出空白行问题</title>
+    <link href="http://zjs520.cc/2016/09/09/hexo-code-highlight/"/>
+    <id>http://zjs520.cc/2016/09/09/hexo-code-highlight/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-13T09:03:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
+<p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
+<ol>
+<li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
+<li>修改highlight.js代码35~38行为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line">numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+<span class="line">content += <span class="string">'&lt;span class="line'</span>;</span>
+<span class="line">content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span>
+<span class="line">content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;\n'</span>;</span>
+</pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如此这般之后，多出来的空白行就消失了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;a href=&quot;#解决Hexo贴代码会多出现多余空行问题&quot; class=&quot;headerlink&quot; title=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;/a&gt;解决Hexo贴代码会多出现多余空行问题&lt;/h3&gt;&lt;p&gt;使用
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【Httpclient+TestNG】接口自动化测试——GET请求示例</title>
     <link href="http://zjs520.cc/2016/09/09/httpclient-get/"/>
     <id>http://zjs520.cc/2016/09/09/httpclient-get/</id>
@@ -650,72 +916,6 @@
     
     
       <category term="接口测试" scheme="http://zjs520.cc/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo代码块高亮多出空白行问题</title>
-    <link href="http://zjs520.cc/2016/09/09/hexo-code-highlight/"/>
-    <id>http://zjs520.cc/2016/09/09/hexo-code-highlight/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-13T09:03:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="解决Hexo贴代码会多出现多余空行问题"><a href="#解决Hexo贴代码会多出现多余空行问题" class="headerlink" title="解决Hexo贴代码会多出现多余空行问题"></a>解决Hexo贴代码会多出现多余空行问题</h3><p>使用Hexo写博客之后发现，贴大段代码的时候，高亮显示会多出很多空白行，就像这样：<br><img src="http://od524vt6u.bkt.clouddn.com/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%9A%E8%A1%8C.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
-<p>十分影响美观，双鱼座的我都忍不了！！！<br>搜索半天只找到一个老版本的解决办法：<a href="https://github.com/0ssifrage/hexo/commit/e4b299c899ca0838d4f0a27d80e5bdd2559ddbdb" target="_blank" rel="external">github issue</a><br>然而在目前Hexo的版本中不太一样了：</p>
-<ol>
-<li>找到highlight.js文件：/hexo/node_modules/hexo/node_modules/hexo-util/lib/highlight.js</li>
-<li>修改highlight.js代码35~38行为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-</pre></td><td class="code"><pre><span class="line">numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;\n'</span>;</span>
-<span class="line">content += <span class="string">'&lt;span class="line'</span>;</span>
-<span class="line">content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span>
-<span class="line">content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;\n'</span>;</span>
-</pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如此这般之后，多出来的空白行就消失了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;a href=&quot;#解决Hexo贴代码会多出现多余空行问题&quot; class=&quot;headerlink&quot; title=&quot;解决Hexo贴代码会多出现多余空行问题&quot;&gt;&lt;/a&gt;解决Hexo贴代码会多出现多余空行问题&lt;/h3&gt;&lt;p&gt;使用
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://zjs520.cc/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git clone 报错：SSL certificate problem</title>
-    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
-    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T05:33:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
-<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
-</blockquote>
-</li>
-</ul>
-<p>解决方法也很简单，一条命令就搞定了：</p>
-<p>git config –global http.sslVerify false</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
-&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
     
   </entry>
   
