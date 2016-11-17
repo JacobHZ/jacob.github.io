@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjs520.cc/"/>
-  <updated>2016-11-15T02:04:47.000Z</updated>
+  <updated>2016-11-17T01:58:23.000Z</updated>
   <id>http://zjs520.cc/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>phantomjs报错:error while loading shared libraries</title>
+    <link href="http://zjs520.cc/2016/11/17/linux_phantomjs_problem/"/>
+    <id>http://zjs520.cc/2016/11/17/linux_phantomjs_problem/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-17T01:58:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在准备持UI自动化测试的过程中发现，在Linux下运行phantomjs存在问题：</p>
+<p>首先，是selenium webdriver 报错：WebDriverException(“Can not connect to the Service %s” % self.path)<br>selenium.common.exceptions.WebDriverException: Message: Can not connect to the Service /usr/bin/phantomjs</p>
+<p>搜索了一番之后发现很多解决方法都无效，换个思路，看看是不是phantomjs本身的问题：<br>执行phantomjs –version报错：phantomjs: error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory</p>
+<p>搜索了一下发现是缺了依赖：yum install freetype-devel fontconfig-devel</p>
+<p>安装完成后再执行selenium脚本能够正常运行</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在准备持UI自动化测试的过程中发现，在Linux下运行phantomjs存在问题：&lt;/p&gt;
+&lt;p&gt;首先，是selenium webdriver 报错：WebDriverException(“Can not connect to the Service %s” % self.
+    
+    </summary>
+    
+    
+      <category term="phantomjs" scheme="http://zjs520.cc/tags/phantomjs/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Selenium+Python+PhantomJS以静默方式完成前端页面UI自动化测试</title>
@@ -600,36 +626,6 @@
   </entry>
   
   <entry>
-    <title>git clone 报错：SSL certificate problem</title>
-    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
-    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-09T05:33:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
-<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
-</blockquote>
-</li>
-</ul>
-<p>解决方法也很简单，一条命令就搞定了：</p>
-<p>git config –global http.sslVerify false</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
-&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo代码块高亮多出空白行问题</title>
     <link href="http://zjs520.cc/2016/09/09/hexo-code-highlight/"/>
     <id>http://zjs520.cc/2016/09/09/hexo-code-highlight/</id>
@@ -916,6 +912,36 @@
     
     
       <category term="接口测试" scheme="http://zjs520.cc/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git clone 报错：SSL certificate problem</title>
+    <link href="http://zjs520.cc/2016/09/09/git-ssl/"/>
+    <id>http://zjs520.cc/2016/09/09/git-ssl/</id>
+    <published>2016-09-08T16:00:00.000Z</published>
+    <updated>2016-09-09T05:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>进行git clone时提示“无效的链接”，并且弹出如下报错：<blockquote>
+<p>error: SSL certificate problem: Invalid certificate chain while accessing <a href="https://githib.com/...XXXX.git" target="_blank" rel="external">https://githib.com/...XXXX.git</a> fatal: HTTP request failed</p>
+</blockquote>
+</li>
+</ul>
+<p>解决方法也很简单，一条命令就搞定了：</p>
+<p>git config –global http.sslVerify false</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;进行git clone时提示“无效的链接”，并且弹出如下报错：&lt;blockquote&gt;
+&lt;p&gt;error: SSL certificate problem: Invalid certificate chain while accessing &lt;a href=&quot;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://zjs520.cc/tags/git/"/>
     
   </entry>
   

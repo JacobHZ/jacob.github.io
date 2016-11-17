@@ -9,7 +9,7 @@
     <meta name="360-site-verification" content="53b4a0819cec9cb488080e8ea079069f" />
     <meta name="google-site-verification" content="-pwn8w3svD2HT9wkZnPS2J_loSlpg3x8SvbxCbgZTEo" />
     
-    <title>Selenium定位frame中元素问题 | Jacob‘s blog</title>
+    <title>phantomjs报错:error while loading shared libraries | Jacob‘s blog</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -17,24 +17,18 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta name="description" content="最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。
-对页面进行分析地址：http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;amp;frm=jyjh
-登录用户名输入框的元素：1
-&amp;lt;input name=&quot;username&quot; id=&quot;userNa">
+    <meta name="description" content="在准备持UI自动化测试的过程中发现，在Linux下运行phantomjs存在问题：
+首先，是selenium webdriver 报错：WebDriverException(“Can not connect to the Service %s” % self.path)selenium.common.exceptions.WebDriverException: Message: Can not c">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Selenium定位frame中元素问题 | Jacob‘s blog">
-    <meta name="twitter:description" content="最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。
-对页面进行分析地址：http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;amp;frm=jyjh
-登录用户名输入框的元素：1
-&amp;lt;input name=&quot;username&quot; id=&quot;userNa">
+    <meta name="twitter:title" content="phantomjs报错:error while loading shared libraries | Jacob‘s blog">
+    <meta name="twitter:description" content="在准备持UI自动化测试的过程中发现，在Linux下运行phantomjs存在问题：
+首先，是selenium webdriver 报错：WebDriverException(“Can not connect to the Service %s” % self.path)selenium.common.exceptions.WebDriverException: Message: Can not c">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Selenium定位frame中元素问题 | Jacob‘s blog">
-    <meta property="og:description" content="最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。
-对页面进行分析地址：http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;amp;frm=jyjh
-登录用户名输入框的元素：1
-&amp;lt;input name=&quot;username&quot; id=&quot;userNa">
+    <meta property="og:title" content="phantomjs报错:error while loading shared libraries | Jacob‘s blog">
+    <meta property="og:description" content="在准备持UI自动化测试的过程中发现，在Linux下运行phantomjs存在问题：
+首先，是selenium webdriver 报错：WebDriverException(“Can not connect to the Service %s” % self.path)selenium.common.exceptions.WebDriverException: Message: Can not c">
 
     
     <meta name="author" content="Jacob">
@@ -51,7 +45,7 @@
     <link rel="alternate" type="application/rss+xml" title="Jacob‘s blog" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://zjs520.cc/2016/09/07/selenium-iframe/"/>
+    <link rel="canonical" href="http://zjs520.cc/2016/11/17/linux_phantomjs_problem/"/>
 
     
       
@@ -152,64 +146,23 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-09-07T14:26:46.000Z" class="post-list__meta--date date">2016-09-07</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/Selenium/">Selenium</a>
+      <time datetime="2016-11-16T16:00:00.000Z" class="post-list__meta--date date">2016-11-17</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/phantomjs/">phantomjs</a>
  </span>
       <span class="page-pv">
       &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
-    <h1 class="post-title">Selenium定位frame中元素问题</h1>
+    <h1 class="post-title">phantomjs报错:error while loading shared libraries</h1>
   </header>
 
   <section class="post">
-    <p>最近在玩一个网页游戏，想通过selenium+python做一个自动化脚本，减少重复的人工操作，同时练习一下selenium的使用。</p>
-<h2 id="对页面进行分析"><a href="#对页面进行分析" class="headerlink" title="对页面进行分析"></a>对页面进行分析</h2><p>地址：<a href="http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh" target="_blank" rel="external">http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh</a></p>
-<p>登录用户名输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userName"</span> <span class="attr">title</span>=<span class="string">"请输入昵称"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入昵称"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span></span>
-</pre></td></tr></table></figure></p>
-<p>登录密码输入框的元素：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"userPass"</span> <span class="attr">title</span>=<span class="string">"请输入密码"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">type</span>=<span class="string">"password"</span>&gt;</span></span></span>
-</pre></td></tr></table></figure></p>
-<p>由此可见，我们可以通过id或者xpath来定位输入框元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-</pre></td><td class="code"><pre><span class="line">driver = webdriver.Firefox()</span>
-<span class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></span>
-<span class="line"></span>
-<span class="line">driver.get(url)</span>
-<span class="line">time.sleep(<span class="number">5</span>)</span>
-<span class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</span>
-<span class="line">driver.find_element_by_xpath(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</span>
-</pre></td></tr></table></figure></p>
-<p><strong>这样可行吗？？？</strong><br>答案当然是不行的，这个时候我就陷入了深深的疑惑中，肯定是哪里出了问题，但是我找不到。</p>
-<h2 id="重新分析页面"><a href="#重新分析页面" class="headerlink" title="重新分析页面"></a>重新分析页面</h2><p>后来一想，id不能定位，xpath呢？</p>
-<p>使用Firefox的view xpath查看一下页面的xpath，结果发现，这个页面上根本不显示登录模块：<br><img src="http://od524vt6u.bkt.clouddn.com/1468981818281.png?watermark/2/text/SmFjb2IncyBibG9nKHpqczUyMC5jYyk=/font/5b6u6L2v6ZuF6buR/fontsize/500/fill/IzE1OTM5Ng==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="Alt text"></p>
-<p>这就很尴尬了，所以这个登录模块是在哪呢？<br>继续一查，发现问题了：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">style</span>=<span class="string">"display: inline;"</span> <span class="attr">id</span>=<span class="string">"log-url"</span> <span class="attr">src</span>=<span class="string">"http://www.douyu.com/member/login/to37wan/micrologin/?forward=http%3A%2F%2Fwan.douyu.com%2Fjyjh%2Fwd%2Fserver.html%3Freferer%3Ddouyuwancom%26frm%3Djyjh"</span> <span class="attr">allowtransparency</span>=<span class="string">"true"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">width</span>=<span class="string">"100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span>
-</pre></td></tr></table></figure></p>
-<p>在登录输入框节点的上面有一个iframe，也就是说，这个登录模块的元素在iframe中，selenium同样也可以定位到iframe中的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-</pre></td><td class="code"><pre><span class="line">url = <span class="string">"http://wan.douyu.com/jyjh/wd/index.html?referer=douyuwancom&amp;frm=jyjh/"</span></span>
-<span class="line"></span>
-<span class="line">driver.get(url)</span>
-<span class="line">time.sleep(<span class="number">5</span>)</span>
-<span class="line">driver.switch_to.frame(<span class="string">"log-url"</span>)</span>
-<span class="line">driver.find_element_by_id(<span class="string">"userName"</span>).send_keys(<span class="string">"******"</span>)</span>
-<span class="line">driver.find_element_by_id(<span class="string">"userPass"</span>).send_keys(<span class="string">"******"</span>)</span>
-</pre></td></tr></table></figure></p>
-<p>就是这个driver.switch_to.frame()方法<br>返回原来的界面可以用driver.SwitchTo().DefaultContent()方法</p>
-<p>至此，解决了登录页面元素定位问题，迈出了第一步。</p>
+    <p>在准备持UI自动化测试的过程中发现，在Linux下运行phantomjs存在问题：</p>
+<p>首先，是selenium webdriver 报错：WebDriverException(“Can not connect to the Service %s” % self.path)<br>selenium.common.exceptions.WebDriverException: Message: Can not connect to the Service /usr/bin/phantomjs</p>
+<p>搜索了一番之后发现很多解决方法都无效，换个思路，看看是不是phantomjs本身的问题：<br>执行phantomjs –version报错：phantomjs: error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory</p>
+<p>搜索了一下发现是缺了依赖：yum install freetype-devel fontconfig-devel</p>
+<p>安装完成后再执行selenium脚本能够正常运行</p>
 
   </section>
 
@@ -322,37 +275,21 @@
 <section class="read-more">
            
     
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/09/09/git-ssl/" title="git clone 报错：SSL certificate problem">git clone 报错：SSL certificate problem</a></h2>
-                <p class="excerpt">
-                
-                
-进行git clone时提示“无效的链接”，并且弹出如下报错：
-error: SSL certificate problem: Invalid certificate chain while accessing https://githib.com/...XXXX.git fatal: HTTP 
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2016-09-08T16:00:00.000Z" class="post-list__meta--date date">2016-09-09</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/git/">git</a>
-</span><a class="btn-border-small" href="/2016/09/09/git-ssl/">继续阅读</a></div>
-                           
-            </div>
         
         
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/09/07/Mac-zsh/" title="Mac安装zsh后必须多次执行`source.bash_profile`解决方案">Mac安装zsh后必须多次执行`source.bash_profile`解决方案</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2016/10/14/Selenium+PhantomJS/" title="使用Selenium+Python+PhantomJS以静默方式完成前端页面UI自动化测试">使用Selenium+Python+PhantomJS以静默方式完成前端页面UI自动化测试</a></h2>
                 <p class="excerpt">
                 
-                Mac 安装zsh后必须多次执行source .bash_profile解决方案最近重新安装zsh后发现原先配好的maven环境变量失效了，重新 source .bash_profile 后又生效了；
-但是，关闭终端重新打开后，maven环境变量又失效…总不能每次都执行一遍source .bash_
+                原理关于SeleniumSelenium是一个Web的自动化测试工具，可以在多平台下操作多种浏览器进行各种动作，比如运行浏览器，访问页面，点击按钮，提交表单，浏览器窗口调整，鼠标右键和拖放动作，下拉框和对话框处理等。
+关于PhantomJsPhantomJs可以看作一个没有页面的浏览器，有渲染引擎（
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2016-09-06T16:00:00.000Z" class="post-list__meta--date date">2016-09-07</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/Mac/">Mac</a>
-</span><a class="btn-border-small" href="/2016/09/07/Mac-zsh/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2016-10-13T16:00:00.000Z" class="post-list__meta--date date">2016-10-14</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Selenium/">Selenium</a>
+</span><a class="btn-border-small" href="/2016/10/14/Selenium+PhantomJS/">继续阅读</a></div>
                        
             </div>
         
@@ -365,7 +302,7 @@ error: SSL certificate problem: Invalid certificate chain while accessing https:
             
 <section class="post-comments">
   <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="http://zjs520.cc/2016/09/07/selenium-iframe/" data-title="Selenium定位frame中元素问题" data-url="http://zjs520.cc/2016/09/07/selenium-iframe/"></div>
+  <div class="ds-thread" data-thread-key="http://zjs520.cc/2016/11/17/linux_phantomjs_problem/" data-title="phantomjs报错:error while loading shared libraries" data-url="http://zjs520.cc/2016/11/17/linux_phantomjs_problem/"></div>
   <!-- 多说评论框 end -->
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
